@@ -32,6 +32,18 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "community_charts_common",
+      "rootUri": "file:///C:/Users/desarrollador5.itisb/AppData/Local/Pub/Cache/hosted/pub.dev/community_charts_common-1.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "community_charts_flutter",
+      "rootUri": "file:///C:/Users/desarrollador5.itisb/AppData/Local/Pub/Cache/hosted/pub.dev/community_charts_flutter-1.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "convert",
       "rootUri": "file:///C:/Users/desarrollador5.itisb/AppData/Local/Pub/Cache/hosted/pub.dev/convert-3.1.1",
       "packageUri": "lib/",
@@ -90,6 +102,12 @@
       "rootUri": "file:///C:/Users/desarrollador5.itisb/Documents/lenguajes/flutter/packages/flutter_test",
       "packageUri": "lib/",
       "languageVersion": "2.17"
+    },
+    {
+      "name": "intl",
+      "rootUri": "file:///C:/Users/desarrollador5.itisb/AppData/Local/Pub/Cache/hosted/pub.dev/intl-0.18.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "js",
@@ -206,7 +224,7 @@
       "languageVersion": "2.19"
     }
   ],
-  "generated": "2023-03-30T20:42:42.798045Z",
+  "generated": "2023-04-10T15:15:49.785459Z",
   "generator": "pub",
   "generatorVersion": "2.19.4"
 }

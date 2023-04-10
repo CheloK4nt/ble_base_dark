@@ -4,7 +4,7 @@
             "outputFile": "com.example.ble_base.app-mergeDebugResources-9:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\desarrollador5.itisb\\Documents\\proyectos\\FlutterProyects\\respaldo ble_base\\ble_base\\android\\app\\src\\main\\res\\values-night\\styles.xml",
+                    "source": "C:\\Users\\desarrollador5.itisb\\Documents\\proyectos\\FlutterProyects\\ble_base_dark\\android\\app\\src\\main\\res\\values-night\\styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",

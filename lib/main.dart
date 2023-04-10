@@ -5,7 +5,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'sensor_page.dart';
+import 'sensor_page_line.dart';
+import 'sensor_page_osci.dart';
 import 'widgets.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 
@@ -87,7 +88,7 @@ class FindDevicesScreen extends StatelessWidget {
           child: Column(
             children: <Widget>[
               StreamBuilder<List<BluetoothDevice>>(
-                stream: Stream.periodic(const Duration(milliseconds: 25)) /* DELAY? */
+                stream: Stream.periodic(const Duration(seconds: 5)) /* DELAY? */
                     .asyncMap((_) => FlutterBluePlus.instance.connectedDevices),
                 initialData: const [],
                 builder: (c, snapshot) => Column(
@@ -130,7 +131,10 @@ class FindDevicesScreen extends StatelessWidget {
                           onTap: () => Navigator.of(context)
                               .push(MaterialPageRoute(builder: (context) {
                             r.device.connect();
-                            return SensorPage(device: r.device);
+
+                            // return SensorPageOsci(device: r.device);
+                            return SensorPageLine(device: r.device);
+
                           })),
                         ),
                       )

@@ -2,12 +2,12 @@ com.example.ble_base.app-jetified-window-java-1.0.0-beta04-0 C:\Users\desarrolla
 com.example.ble_base.app-core-1.6.0-1 C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\4ca28c4a71705f8a687c69dda140a277\transformed\core-1.6.0\res
 com.example.ble_base.app-jetified-annotation-experimental-1.1.0-2 C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\8965c941cf4bee4d72541b965c7c9d39\transformed\jetified-annotation-experimental-1.1.0\res
 com.example.ble_base.app-jetified-window-1.0.0-beta04-3 C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\res
-com.example.ble_base.app-debug-4 C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\respaldo ble_base\ble_base\android\app\src\debug\res
-com.example.ble_base.app-main-5 C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\respaldo ble_base\ble_base\android\app\src\main\res
-com.example.ble_base.app-pngs-6 C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\respaldo ble_base\ble_base\build\app\generated\res\pngs\debug
-com.example.ble_base.app-resValues-7 C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\respaldo ble_base\ble_base\build\app\generated\res\resValues\debug
-com.example.ble_base.app-rs-8 C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\respaldo ble_base\ble_base\build\app\generated\res\rs\debug
-com.example.ble_base.app-mergeDebugResources-9 C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\respaldo ble_base\ble_base\build\app\intermediates\incremental\debug\mergeDebugResources\merged.dir
-com.example.ble_base.app-mergeDebugResources-10 C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\respaldo ble_base\ble_base\build\app\intermediates\incremental\debug\mergeDebugResources\stripped.dir
-com.example.ble_base.app-merged_res-11 C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\respaldo ble_base\ble_base\build\app\intermediates\merged_res\debug
-com.example.ble_base.app-packaged_res-12 C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\respaldo ble_base\ble_base\build\flutter_blue_plus\intermediates\packaged_res\debug
+com.example.ble_base.app-debug-4 C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\debug\res
+com.example.ble_base.app-main-5 C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\res
+com.example.ble_base.app-pngs-6 C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\app\generated\res\pngs\debug
+com.example.ble_base.app-resValues-7 C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\app\generated\res\resValues\debug
+com.example.ble_base.app-rs-8 C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\app\generated\res\rs\debug
+com.example.ble_base.app-mergeDebugResources-9 C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\app\intermediates\incremental\debug\mergeDebugResources\merged.dir
+com.example.ble_base.app-mergeDebugResources-10 C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\app\intermediates\incremental\debug\mergeDebugResources\stripped.dir
+com.example.ble_base.app-merged_res-11 C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\app\intermediates\merged_res\debug
+com.example.ble_base.app-packaged_res-12 C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\packaged_res\debug
