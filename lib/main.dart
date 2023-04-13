@@ -3,7 +3,8 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'dart:async';
-
+import 'dart:io';
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'sensor_page_line.dart';
 import 'sensor_page_osci.dart';
@@ -21,11 +22,13 @@ class FlutterBlueApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        brightness: Brightness.dark,
-        primaryColorDark: Colors.teal,
+        // brightness: Brightness.dark,
+        brightness: Brightness.light,
+        primaryColorDark: Colors.blue,
+        primaryColorLight: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      color: Colors.teal,
+      color: Colors.blue,
       home: StreamBuilder<BluetoothState>(
           stream: FlutterBluePlus.instance.state,
           initialData: BluetoothState.unknown,
@@ -48,7 +51,7 @@ class BluetoothOffScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.teal,
+      backgroundColor: Colors.blue,
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -59,11 +62,17 @@ class BluetoothOffScreen extends StatelessWidget {
               color: Colors.white54,
             ),
             Text(
-              'Bluetooth Adapter is ${state.toString().substring(15)}.',
+              'El adaptador bluetooth está ${state.toString().substring(15)}.',
               style: Theme.of(context)
                   .primaryTextTheme
                   .titleSmall
                   ?.copyWith(color: Colors.white),
+            ),
+            ElevatedButton(
+              onPressed: Platform.isAndroid
+                  ? () => FlutterBluePlus.instance.turnOn()
+                  : null,
+              child: const Text('Encender BT'),
             ),
           ],
         ),
@@ -79,7 +88,22 @@ class FindDevicesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Find Devices'),
+        title: const Text('Buscar Dispositivos'),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ElevatedButton(  
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.black,
+                foregroundColor: Colors.white,
+              ),
+              onPressed: Platform.isAndroid
+                  ? () => FlutterBluePlus.instance.turnOff()
+                  : null,
+              child: const Text('APAGAR'),
+            ),
+          ),
+        ],
       ),
       body: RefreshIndicator(
         onRefresh: () =>
@@ -88,7 +112,7 @@ class FindDevicesScreen extends StatelessWidget {
           child: Column(
             children: <Widget>[
               StreamBuilder<List<BluetoothDevice>>(
-                stream: Stream.periodic(const Duration(seconds: 5)) /* DELAY? */
+                stream: Stream.periodic(const Duration(seconds: 2)) /* DELAY? */
                     .asyncMap((_) => FlutterBluePlus.instance.connectedDevices),
                 initialData: const [],
                 builder: (c, snapshot) => Column(
@@ -106,7 +130,7 @@ class FindDevicesScreen extends StatelessWidget {
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor: Theme.of(context).primaryColorDark,
                                     ),
-                                    child: const Text('OPEN'),
+                                    child: const Text('ABRIR'),
                                     onPressed: () => Navigator.of(context).push(
                                         MaterialPageRoute(
                                             builder: (context) =>
@@ -158,8 +182,9 @@ class FindDevicesScreen extends StatelessWidget {
           } else {
             return FloatingActionButton(
                 child: const Icon(Icons.search),
-                onPressed: () => FlutterBluePlus.instance
-                    .startScan(timeout: const Duration(seconds: 4)));
+                onPressed: () => FlutterBluePlus.instance.startScan(timeout: const Duration(seconds: 4)
+              )
+            );
           }
         },
       ),
@@ -172,6 +197,16 @@ class DeviceScreen extends StatelessWidget {
 
   final BluetoothDevice device;
 
+  List<int> _getRandomBytes() {
+    final math = Random();
+    return [
+      math.nextInt(255),
+      math.nextInt(255),
+      math.nextInt(255),
+      math.nextInt(255)
+    ];
+  }
+
   List<Widget> _buildServiceTiles(List<BluetoothService> services) {
     return services
         .map(
@@ -182,15 +217,20 @@ class DeviceScreen extends StatelessWidget {
                   (c) => CharacteristicTile(
                     characteristic: c,
                     onReadPressed: () => c.read(),
-                    onWritePressed: () => c.write([13, 24]),
-                    onNotificationPressed: () =>
-                        c.setNotifyValue(!c.isNotifying),
+                    onWritePressed: () async {
+                      await c.write(_getRandomBytes(), withoutResponse: true);
+                      await c.read();
+                    },
+                    onNotificationPressed: () async {
+                      await c.setNotifyValue(!c.isNotifying);
+                      await c.read();
+                    },
                     descriptorTiles: c.descriptors
                         .map(
                           (d) => DescriptorTile(
                             descriptor: d,
                             onReadPressed: () => d.read(),
-                            onWritePressed: () => d.write([11, 12]),
+                            onWritePressed: () => d.write(_getRandomBytes()),
                           ),
                         )
                         .toList(),
@@ -217,11 +257,11 @@ class DeviceScreen extends StatelessWidget {
               switch (snapshot.data) {
                 case BluetoothDeviceState.connected:
                   onPressed = () => device.disconnect();
-                  text = 'DISCONNECT';
+                  text = 'DESCONECTAR';
                   break;
                 case BluetoothDeviceState.disconnected:
                   onPressed = () => device.connect();
-                  text = 'CONNECT';
+                  text = 'CONECTAR';
                   break;
                 default:
                   onPressed = null;
@@ -248,9 +288,22 @@ class DeviceScreen extends StatelessWidget {
               stream: device.state,
               initialData: BluetoothDeviceState.connecting,
               builder: (c, snapshot) => ListTile(
-                leading: (snapshot.data == BluetoothDeviceState.connected)
-                    ? const Icon(Icons.bluetooth_connected)
-                    : const Icon(Icons.bluetooth_disabled),
+                leading: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    snapshot.data == BluetoothDeviceState.connected
+                        ? const Icon(Icons.bluetooth_connected)
+                        : const Icon(Icons.bluetooth_disabled),
+                    snapshot.data == BluetoothDeviceState.connected
+                        ? StreamBuilder<int>(
+                        stream: rssiStream(),
+                        builder: (context, snapshot) {
+                          return Text(snapshot.hasData ? '${snapshot.data}dBm' : '',
+                              style: Theme.of(context).textTheme.bodySmall);
+                        })
+                        : Text('', style: Theme.of(context).textTheme.bodySmall),
+                  ],
+                ),
                 title: Text(
                     'Device is ${snapshot.data.toString().split('.')[1]}.'),
                 subtitle: Text('${device.id}'),
@@ -304,5 +357,18 @@ class DeviceScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Stream<int> rssiStream() async* {
+    var isConnected = true;
+    final subscription = device.state.listen((state) {
+      isConnected = state == BluetoothDeviceState.connected;
+    });
+    while (isConnected) {
+      yield await device.readRssi();
+      await Future.delayed(const Duration(seconds: 1));
+    }
+    subscription.cancel();
+    // Device disconnected, stopping RSSI stream
   }
 }

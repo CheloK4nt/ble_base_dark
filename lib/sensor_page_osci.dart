@@ -133,7 +133,7 @@ class _SensorPageState extends State<SensorPageOsci> {
       showYAxis: true,
       // margin: const EdgeInsets.all(0),
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-      traceColor: Colors.tealAccent,
+      traceColor: Colors.blue,
       yAxisMax: 55.0,
       yAxisMin: 0.0,
       dataSet: traceDust,
@@ -150,7 +150,7 @@ class _SensorPageState extends State<SensorPageOsci> {
           ? const Center(
             child: Text(
               "Esperando...",
-              style: TextStyle(fontSize: 24, color: Colors.tealAccent),
+              style: TextStyle(fontSize: 24, color: Colors.blue),
             ),
           )
           : StreamBuilder<List<int>>(

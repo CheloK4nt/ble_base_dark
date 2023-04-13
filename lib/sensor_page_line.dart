@@ -39,12 +39,42 @@ class _SensorPageState extends State<SensorPageLine> {
 
   List<MyData> _dataList = List.empty(growable: true);
   List<MyData> _dataList2 = List.empty(growable: true);
+  int z = 0;
+
+  int _segundosTranscurridos = 0;
+  int _minutosTranscurridos = 0;
+  late Timer _timerSeg;
+  late Timer _timerMin;
 
   @override
-  void initState() {
+  void initState() {   
     super.initState();
+
+/* DECLARACION TIMER */
+    _timerSeg = Timer.periodic(Duration(seconds: 1), (Timer timer) {
+      setState(() {
+        _segundosTranscurridos++;
+        if (_segundosTranscurridos == 60) {
+          _segundosTranscurridos = 0;
+        }
+      });
+    });
+
+    _timerMin = Timer.periodic(Duration(minutes: 1), (Timer timer) {
+      setState(() {
+        _minutosTranscurridos++;
+      });
+    });
+
     isReady = false;
-    connectToDevice();
+    connectToDevice(); 
+  }
+
+/* TIMER DISPOSE */
+  @override
+  void dispose() {
+    _timerSeg.cancel();
+    super.dispose();
   }
 
   connectToDevice() async {
@@ -111,10 +141,17 @@ class _SensorPageState extends State<SensorPageLine> {
         content: const Text('¿Quieres desconectar el dispositivo y volver atrás?'),
         actions: [
           TextButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(const Color.fromARGB(255, 218, 243, 255)),
+            ),
             onPressed: () => Navigator.of(context).pop(false),
             child: const Text('No')
           ),
           TextButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(const Color.fromARGB(255, 255, 75, 62)),
+              foregroundColor: MaterialStateProperty.all(Colors.white),
+            ),
             onPressed: () {
               disconnectFromDevice();
               Navigator.of(context).pop();
@@ -159,7 +196,7 @@ class _SensorPageState extends State<SensorPageLine> {
           ? const Center(
             child: Text(
               "Esperando...",
-              style: TextStyle(fontSize: 24, color: Colors.tealAccent),
+              style: TextStyle(fontSize: 24, color: Colors.blue),
             ),
           )
           : StreamBuilder<List<int>>(
@@ -173,7 +210,17 @@ class _SensorPageState extends State<SensorPageLine> {
               if (snapshot.connectionState == ConnectionState.active) {
                 /* RECEPCION DE DATOS  */
                 var currentValue = _dataParser(snapshot.data!);
-                _addData(double.tryParse(currentValue) ?? 0);
+
+                if (_dataList.isEmpty){
+                  _addData(0);
+                }
+
+                Future.delayed(Duration.zero,(){
+                  setState(() {
+                    _addData(double.tryParse(currentValue) ?? 0);
+                  });
+                });
+                
 
                 return Center(
                   child: Column(
@@ -193,6 +240,7 @@ class _SensorPageState extends State<SensorPageLine> {
                         flex: 1,
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
+                          /* =============== LINE CHART =============== */
                           child: charts.LineChart(
                             seriesList,
                             animate: false,
@@ -201,14 +249,60 @@ class _SensorPageState extends State<SensorPageLine> {
                               includeArea: true,
                               areaOpacity: 0.35
                             ),
+                            primaryMeasureAxis: const charts.NumericAxisSpec(
+                              tickProviderSpec: charts.StaticNumericTickProviderSpec(
+                                [
+                                  charts.TickSpec(0, label: "0"),
+                                  charts.TickSpec(5, label: "5"),
+                                  charts.TickSpec(10, label: "10"),
+                                  charts.TickSpec(15, label: "15"),
+                                  charts.TickSpec(20, label: "20"),
+                                  charts.TickSpec(25, label: "25"),
+                                  charts.TickSpec(30, label: "30"),
+                                  charts.TickSpec(35, label: "35"),
+                                  charts.TickSpec(40, label: "40"),
+                                  charts.TickSpec(45, label: "45"),
+                                  charts.TickSpec(50, label: "50"),
+                                ]
+                              ),
+                            ),
+                            domainAxis: charts.NumericAxisSpec(
+
+                              /* MENOS DE 1 MINUTO */
+                              tickProviderSpec: (_minutosTranscurridos < 1)    
+                              ? charts.StaticNumericTickProviderSpec(
+                                [
+                                  charts.TickSpec(_dataList.last.xValue, label: (_segundosTranscurridos < 10)
+                                    ? "⏱ 00:0$_segundosTranscurridos"
+                                    : "⏱ 00:$_segundosTranscurridos"
+                                  ),
+                                ]
+                              )
+
+                              /* MAS o IGUAL a 1 MINUTO */
+                              : charts.StaticNumericTickProviderSpec(
+                                [
+                                  charts.TickSpec(_dataList.last.xValue, label: (_minutosTranscurridos < 10)
+                                  ?(_segundosTranscurridos < 10)
+                                    ? "⏱ 0$_minutosTranscurridos:0$_segundosTranscurridos"
+                                    : "⏱ 0$_minutosTranscurridos:$_segundosTranscurridos"
+                                  :(_segundosTranscurridos < 10)
+                                    ? "⏱ $_minutosTranscurridos:0$_segundosTranscurridos"
+                                    : "⏱ $_minutosTranscurridos:$_segundosTranscurridos"
+                                  ),
+                                ]
+                              )
+
+                            ),
                           ),
+                          /* =============== END LINE CHART =============== */
                         ),
                       )
                     ],
                   )
                 );
               } else {
-                return const Text('Check the stream');
+                return const Text('Revise la transmisión de datos');
               }
             },
           ),
@@ -219,21 +313,22 @@ class _SensorPageState extends State<SensorPageLine> {
 
   /* ==================== AGREGAR DATOS A LINE CHART ==================== */
   void _addData(valor) {
-    if (_dataList.length < 200) {
+    if (_dataList.length < 300) {
       _dataList.add(MyData(_dataList.length, valor));
       
-      print("LISTA: ${_dataList.length}");
+      // print("${_dataList.length}: $valor");
 
     } else {
-      for (var element in _dataList.getRange(_dataList.length - 199, _dataList.length)) {
+      for (var element in _dataList.getRange(_dataList.length - 299, _dataList.length)) {
         _dataList2.add(MyData(_dataList2.length, element.yValue));
-        print("${element.xValue},${element.yValue}");
+        // print("${element.xValue},${element.yValue}");
       }
       _dataList = _dataList2;
       _dataList.add(MyData(_dataList.length, valor));
       _dataList2 = [];
       
-      print("LISTA 1: ${_dataList.length}");
+      // print("LISTA 1: ${_dataList.length}");
+      
     }
   }
 /* ==================== FIN AGREGAR DATOS A LINE CHART ==================== */
