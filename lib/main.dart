@@ -2,21 +2,14 @@
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import 'dart:async';
-import 'dart:io';
-import 'dart:math';
-import 'package:ble_base/pages/charts_page/charts_page.dart';
 import 'package:ble_base/pages/home_page/bluetooth_off_screen.dart';
-import 'package:ble_base/pages/home_page/find_devices_screen.dart';
 import 'package:ble_base/pages/home_page/home_page.dart';
-import 'package:ble_base/pages/home_page/settings_page.dart';
 import 'package:ble_base/providers/shared_pref.dart';
 import 'package:ble_base/providers/theme_provider.dart';
 import 'package:ble_base/providers/ui_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'widgets.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 
 void main() async {
