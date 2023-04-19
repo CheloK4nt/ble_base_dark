@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:ble_base/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
@@ -12,7 +14,30 @@ class FindDevicesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Dispositivos"),
+        title: const Text("Lista de dispositivos"),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ElevatedButton(  
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.red,
+                foregroundColor: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(50)
+                ),
+              ),
+              onPressed: Platform.isAndroid
+                  ? () => FlutterBluePlus.instance.turnOff()
+                  : null,
+              child: Stack(
+                fit: StackFit.loose,
+                children: [
+                  Icon(Icons.bluetooth_disabled_sharp),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
       body: RefreshIndicator(
         onRefresh: () => FlutterBluePlus.instance

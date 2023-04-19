@@ -201,7 +201,7 @@ class _ChartsPageState extends State<ChartsPage> {
           ? Center(
             child: Text(
               "Esperando...",
-              style: TextStyle(fontSize: 24, color: Theme.of(context).accentColor),
+              style: TextStyle(fontSize: 24, color: Theme.of(context).colorScheme.secondary),
             ),
           )
           : StreamBuilder<List<int>>(

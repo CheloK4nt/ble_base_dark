@@ -4,6 +4,7 @@ class ThemeProvider extends ChangeNotifier{
   ThemeData? _selectedTheme;
 
   ThemeData dark = ThemeData.dark().copyWith(
+    // ignore: prefer_const_constructors
     bottomAppBarTheme: BottomAppBarTheme(
       color: Colors.grey.shade800
     )
@@ -23,6 +24,7 @@ class ThemeProvider extends ChangeNotifier{
   );
 
   ThemeData light = ThemeData.light().copyWith(
+    // ignore: prefer_const_constructors
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: Colors.blue,
     ),
