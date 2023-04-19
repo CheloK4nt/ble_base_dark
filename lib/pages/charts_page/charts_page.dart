@@ -42,7 +42,9 @@ class _ChartsPageState extends State<ChartsPage> {
   List<MyData> _dataList = List.empty(growable: true); /* Lista para grafico mmhg */
   List<MyData> _dataList2 = List.empty(growable: true); /* Lista 2 grafico mmhg */
   List<MyData> _dataListX = List.empty(growable: true); /* Lista para grafico kpa */
-  List<MyData> _dataListX2 = List.empty(growable: true); /* Lista 2 para grafico mmhg */
+  List<MyData> _dataListX2 = List.empty(growable: true); /* Lista 2 para grafico kpa */
+  List<MyData> _dataListY = List.empty(growable: true); /* Lista para grafico % */
+  List<MyData> _dataListY2 = List.empty(growable: true); /* Lista 2 para grafico % */
 
   int _segundosTranscurridos = 0; /* segundos transcurridos desde que empieza el examen */
   int _minutosTranscurridos = 0; /* minutos transcurridos desde que empieza el examen */
@@ -249,9 +251,14 @@ class _ChartsPageState extends State<ChartsPage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             const Text('Valor Actual:', style: TextStyle(fontSize: 14)),
+
+                            /* ========== CONDICIONAL TIPO DE UNIDAD A MOSTRAR ========== */
                             (uiProvider == "Grafico mmHg")
                             ?Text('$currentValue mmHg', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24))
-                            :Text('${((double.tryParse(currentValue) ?? 0) * 0.133322).toStringAsFixed(2)} kpa', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24))
+                            : (uiProvider == "Grafico kpa")
+                              ?Text('${((double.tryParse(currentValue) ?? 0) * 0.133322).toStringAsFixed(2)} kpa', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24))
+                              :Text('${((double.tryParse(currentValue) ?? 0) / 7.6).toStringAsFixed(2)}%', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24))
+                            /* ========== FIN CONDICIONAL ========== */
                           ]
                         ),
                       ),
@@ -335,20 +342,25 @@ class _ChartsPageState extends State<ChartsPage> {
     if (_dataList.length < 300) {
       _dataList.add(MyData(_dataList.length, valor));
       _dataListX.add(MyData(_dataListX.length, (valor * 0.133322)));
+      _dataListY.add(MyData(_dataListY.length, (valor / 7.6)));
       // print("${_dataList.length}: $valor");
 
     } else {
       for (var element in _dataList.getRange(_dataList.length - 299, _dataList.length)) {
         _dataList2.add(MyData(_dataList2.length, element.yValue));
         _dataListX2.add(MyData(_dataListX2.length, (element.yValue * 0.133322)));
+        _dataListY2.add(MyData(_dataListY2.length, (element.yValue / 7.6)));
         // print("${element.xValue},${element.yValue}");
       }
       _dataList = _dataList2;
       _dataListX = _dataListX2;
+      _dataListY = _dataListY2;
       _dataList.add(MyData(_dataList.length, valor));
       _dataListX.add(MyData(_dataListX.length, (valor * 0.133322)));
+      _dataListY.add(MyData(_dataListY.length, (valor / 7.6)));
       _dataList2 = [];
       _dataListX2 = [];
+      _dataListY2 = [];
       
       // print("LISTA 1: ${_dataList.length}");
       

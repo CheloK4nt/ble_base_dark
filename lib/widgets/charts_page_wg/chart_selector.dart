@@ -19,7 +19,8 @@ class _ChartSelectorState extends State<ChartSelector> {
 
     Map<String, String> unitChart = {
       'Grafico mmHg'  : 'mmHg',
-      'Grafico kpa' : 'kpa'
+      'Grafico kpa' : 'kpa',
+      'Grafico %' : '%',
     };
 
     unitChart.forEach((name, unidad){
