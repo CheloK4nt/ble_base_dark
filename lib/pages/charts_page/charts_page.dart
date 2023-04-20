@@ -4,11 +4,11 @@ import 'dart:async';
 import 'dart:convert' show utf8;
 import 'dart:math';
 
+import 'package:ble_base/pages/home_page/home_page.dart';
 import 'package:ble_base/providers/ui_provider.dart';
 import 'package:ble_base/widgets/charts_page_wg/chart_selector.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
-import 'package:oscilloscope/oscilloscope.dart';
 
 import 'dart:developer' as logdev;
 
@@ -72,8 +72,10 @@ class _ChartsPageState extends State<ChartsPage> {
       });
     });
 
-    isReady = false;
-    connectToDevice(); 
+    isReady = true; /* false */
+    discoverServices();
+    // disconnectFromDevice();
+    // connectToDevice(); 
   }
 
   /* TIMER DISPOSE */
@@ -82,93 +84,6 @@ class _ChartsPageState extends State<ChartsPage> {
     _timerSeg.cancel();
     _timerMin.cancel();
     super.dispose();
-  }
-
-  connectToDevice() async {
-    // ignore: unnecessary_null_comparison
-    if (widget.device == null) {
-      _Pop();
-      return;
-    }
-
-    Timer(const Duration(seconds: 15), () {
-      if (!isReady) {
-        disconnectFromDevice();
-        _Pop();
-      }
-    });
-
-    await widget.device.connect();
-    discoverServices();
-  }
-
-  disconnectFromDevice() {
-    // ignore: unnecessary_null_comparison
-    if (widget.device == null) {
-      _Pop();
-      return;
-    }
-
-    widget.device.disconnect();
-  }
-
-  discoverServices() async {
-    // ignore: unnecessary_null_comparison
-    if (widget.device == null) {
-      _Pop();
-      return;
-    }
-
-    List<BluetoothService> services = await widget.device.discoverServices();
-    for (var service in services) {
-      if (service.uuid.toString() == SERVICE_UUID) {
-        for (var characteristic in service.characteristics) {
-          if (characteristic.uuid.toString() == CHARACTERISTIC_UUID) {
-            characteristic.setNotifyValue(!characteristic.isNotifying);
-            stream = characteristic.value;
-
-            setState(() {
-              isReady = true;
-            });
-          }
-        }
-      }
-    }
-
-    if (!isReady) {
-      _Pop();
-    }
-  }
-
-  Future<bool> _onWillPop() {
-    return showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('¿Estás seguro?'),
-        content: const Text('¿Quieres desconectar el dispositivo y volver atrás?'),
-        actions: [
-          TextButton(
-            style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(const Color.fromARGB(255, 218, 243, 255)),
-            ),
-            onPressed: () => Navigator.of(context).pop(false),
-            child: const Text('No')
-          ),
-          TextButton(
-            style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(const Color.fromARGB(255, 255, 75, 62)),
-              foregroundColor: MaterialStateProperty.all(Colors.white),
-            ),
-            onPressed: () {
-              disconnectFromDevice();
-              Navigator.of(context).pop();
-              Navigator.of(context).pop();
-            },
-            child: const Text('Si')
-          ),
-        ],
-      ),
-    ).then((value) => false);
   }
 
   _Pop() {
@@ -293,8 +208,7 @@ class _ChartsPageState extends State<ChartsPage> {
                               ),
                             ),
                             domainAxis: charts.NumericAxisSpec(
-
-                              /* MENOS DE 1 MINUTO */
+                              /* ========== MENOS DE 1 MINUTO ========== */
                               tickProviderSpec: (_minutosTranscurridos < 1)    
                               ? charts.StaticNumericTickProviderSpec(
                                 [
@@ -304,8 +218,8 @@ class _ChartsPageState extends State<ChartsPage> {
                                   ),
                                 ]
                               )
-
-                              /* MAS o IGUAL a 1 MINUTO */
+                              /* ================================================== */
+                              /* ========== MAS o IGUAL a 1 MINUTO ========== */
                               : charts.StaticNumericTickProviderSpec(
                                 [
                                   charts.TickSpec(_dataList.last.xValue, label: (_minutosTranscurridos < 10)
@@ -318,7 +232,7 @@ class _ChartsPageState extends State<ChartsPage> {
                                   ),
                                 ]
                               )
-
+                              /* ================================================== */
                             ),
                           ),
                           /* =============== END LINE CHART =============== */
@@ -366,6 +280,100 @@ class _ChartsPageState extends State<ChartsPage> {
       
     }
   }
-/* ==================== FIN AGREGAR DATOS A LINE CHART ==================== */
+  /* ==================== FIN AGREGAR DATOS A LINE CHART ==================== */
+
+  /* ==================== CONECTAR A DISPOSITIVO ==================== */
+  connectToDevice() async {
+    // ignore: unnecessary_null_comparison
+    if (widget.device == null) {
+      _Pop();
+      return;
+    }
+
+    Timer(const Duration(seconds: 15), () {
+      if (!isReady) {
+        disconnectFromDevice();
+        _Pop();
+      }
+    });
+
+    await widget.device.connect();
+    discoverServices();
+  }
+  /* ==================== FIN CONECTAR A DISPOSITIVO ==================== */
+
+  /* ==================== DESCUBRIR SERVICIOS ==================== */
+  discoverServices() async {
+    // ignore: unnecessary_null_comparison
+    if (widget.device == null) {
+      _Pop();
+      return;
+    }
+
+    List<BluetoothService> services = await widget.device.discoverServices();
+    for (var service in services) {
+      if (service.uuid.toString() == SERVICE_UUID) {
+        for (var characteristic in service.characteristics) {
+          if (characteristic.uuid.toString() == CHARACTERISTIC_UUID) {
+            characteristic.setNotifyValue(!characteristic.isNotifying);
+            stream = characteristic.value;
+
+            setState(() {
+              isReady = true;
+            });
+          }
+        }
+      }
+    }
+
+    if (!isReady) {
+      _Pop();
+    }
+  }
+  /* ==================== FIN DESCUBRIR SERVICIOS ==================== */
+
+  /* ==================== DESCONECTAR DISPOSITIVO ==================== */
+  disconnectFromDevice() {
+    // ignore: unnecessary_null_comparison
+    if (widget.device == null) {
+      _Pop();
+      return;
+    }
+
+    widget.device.disconnect();
+  }
+  /* ==================== FIN DESCONECTAR DISPOSITIVO ==================== */
+
+  /* ==================== CUADRO DESCONECTAR DISPOSITIVO ==================== */
+  Future<bool> _onWillPop() {
+    return showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('¿Estás seguro?'),
+        content: const Text('¿Quieres desconectar el dispositivo y volver atrás?'),
+        actions: [
+          TextButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(const Color.fromARGB(255, 218, 243, 255)),
+            ),
+            onPressed: () => Navigator.of(context).pop(false),
+            child: const Text('No')
+          ),
+          TextButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(const Color.fromARGB(255, 255, 75, 62)),
+              foregroundColor: MaterialStateProperty.all(Colors.white),
+            ),
+            onPressed: () {
+              disconnectFromDevice();
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePage()));
+            },
+            child: const Text('Si')
+          ),
+        ],
+      ),
+    ).then((value) => false);
+  }
+  /* ==================== FIN CUADRO DESCONECTAR DISPOSITIVO ==================== */
 
 }
