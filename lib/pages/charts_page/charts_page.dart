@@ -191,8 +191,9 @@ class _ChartsPageState extends State<ChartsPage> {
                               includeArea: true,
                               areaOpacity: 0.35
                             ),
-                            primaryMeasureAxis: const charts.NumericAxisSpec(
-                              tickProviderSpec: charts.StaticNumericTickProviderSpec(
+                            primaryMeasureAxis: charts.NumericAxisSpec(
+                              tickProviderSpec: (uiProvider == "Grafico mmHg") 
+                              ?const charts.StaticNumericTickProviderSpec(
                                 [
                                   charts.TickSpec(0, label: "0"),
                                   charts.TickSpec(5, label: "5"),
@@ -206,7 +207,17 @@ class _ChartsPageState extends State<ChartsPage> {
                                   charts.TickSpec(45, label: "45"),
                                   charts.TickSpec(50, label: "50"),
                                 ]
-                              ),
+                              )
+                              :const charts.StaticNumericTickProviderSpec(
+                                [
+                                  charts.TickSpec(0, label: "0"),
+                                  charts.TickSpec(2, label: "2"),
+                                  charts.TickSpec(4, label: "4"),
+                                  charts.TickSpec(6, label: "6"),
+                                  charts.TickSpec(8, label: "8"),
+                                  charts.TickSpec(10, label: "10"),
+                                ]
+                              )
                             ),
                             domainAxis: charts.NumericAxisSpec(
                               /* ========== MENOS DE 1 MINUTO ========== */
