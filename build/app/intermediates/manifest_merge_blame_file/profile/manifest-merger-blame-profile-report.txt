@@ -47,7 +47,7 @@
 32-->[androidx.core:core:1.6.0] C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\4ca28c4a71705f8a687c69dda140a277\transformed\core-1.6.0\AndroidManifest.xml:24:18-86
 33        android:debuggable="true"
 34        android:icon="@mipmap/ic_launcher"
-35        android:label="ble_base" >
+35        android:label="Monitor EBC" >
 36        <activity
 37            android:name="com.example.ble_base.MainActivity"
 38            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
