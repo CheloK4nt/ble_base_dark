@@ -4,6 +4,7 @@ import 'dart:async';
 import 'dart:convert' show utf8;
 import 'dart:math';
 
+import 'package:ble_base/main.dart';
 import 'package:ble_base/pages/home_page/home_page.dart';
 import 'package:ble_base/providers/ui_provider.dart';
 import 'package:ble_base/widgets/charts_page_wg/chart_selector.dart';
@@ -366,7 +367,7 @@ class _ChartsPageState extends State<ChartsPage> {
             ),
             onPressed: () {
               disconnectFromDevice();
-              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePage()));
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const MonitorEBCApp()));
             },
             child: const Text('Si')
           ),

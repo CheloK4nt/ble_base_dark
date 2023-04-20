@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:ble_base/main.dart';
 import 'package:ble_base/pages/charts_page/charts_page.dart';
 import 'package:ble_base/pages/home_page/home_page.dart';
 import 'package:flutter/material.dart';
@@ -120,7 +121,7 @@ class _StartExamPageState extends State<StartExamPage> {
             ),
             onPressed: () {
               disconnectFromDevice();
-              Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const HomePage()));
+              Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const MonitorEBCApp()));
             },
             child: const Text('Si')
           ),
