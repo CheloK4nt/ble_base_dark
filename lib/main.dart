@@ -8,6 +8,7 @@ import 'package:ble_base/providers/shared_pref.dart';
 import 'package:ble_base/providers/theme_provider.dart';
 import 'package:ble_base/providers/ui_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
@@ -16,15 +17,17 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final prefs = UserPrefs();
   await prefs.initPrefs();
-  runApp(
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => UIProvider()),
-        ChangeNotifierProvider(create: (_) => ThemeProvider(prefs.darkMode)),
-      ],
-      child: const MonitorEBCApp()
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((_) {
+    runApp( 
+      MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (_) => UIProvider()),
+          ChangeNotifierProvider(create: (_) => ThemeProvider(prefs.darkMode)),
+        ],
+        child: const MonitorEBCApp()
       )
-  );
+    );
+  });
 }
 
 class MonitorEBCApp extends StatelessWidget {

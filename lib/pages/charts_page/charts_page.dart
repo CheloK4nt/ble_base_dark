@@ -87,14 +87,6 @@ class _ChartsPageState extends State<ChartsPage> {
     super.dispose();
   }
 
-  _Pop() {
-    Navigator.of(context).pop(true);
-  }
-
-  String _dataParser(List<int> dataFromDevice) {
-    return utf8.decode(dataFromDevice);
-  }
-
   @override
   Widget build(BuildContext context) {
     final uiProvider = context.watch<UIProvider>().selectedUnity;
@@ -254,7 +246,21 @@ class _ChartsPageState extends State<ChartsPage> {
                   )
                 );
               } else {
-                return const Text('Revise la transmisión de datos');
+                return Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Esperando datos...",
+                        style: TextStyle(fontSize: 24, color: Theme.of(context).colorScheme.secondary, fontWeight: FontWeight.w200),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: CircularProgressIndicator(),
+                      ),
+                    ],
+                  ),
+                );
               }
             },
           ),
@@ -378,7 +384,7 @@ class _ChartsPageState extends State<ChartsPage> {
             ),
             onPressed: () {
               disconnectFromDevice();
-              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const MonitorEBCApp()));
+              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => const MonitorEBCApp()), (Route route) => false);
             },
             child: const Text('Si')
           ),
@@ -387,5 +393,13 @@ class _ChartsPageState extends State<ChartsPage> {
     ).then((value) => false);
   }
   /* ==================== FIN CUADRO DESCONECTAR DISPOSITIVO ==================== */
+
+  _Pop() {
+    Navigator.of(context).pop(true);
+  }
+
+  String _dataParser(List<int> dataFromDevice) {
+    return utf8.decode(dataFromDevice);
+  }
 
 }

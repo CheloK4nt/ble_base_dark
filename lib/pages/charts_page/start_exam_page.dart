@@ -1,9 +1,10 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'dart:async';
 import 'dart:convert';
 
 import 'package:ble_base/main.dart';
 import 'package:ble_base/pages/charts_page/charts_page.dart';
-import 'package:ble_base/pages/home_page/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 
@@ -30,112 +31,6 @@ class _StartExamPageState extends State<StartExamPage> {
 
     isReady = false;
     connectToDevice(); 
-  }
-
-  connectToDevice() async {
-    // ignore: unnecessary_null_comparison
-    if (widget.device == null) {
-      _Pop();
-      return;
-    }
-
-    Timer(const Duration(seconds: 15), () {
-      if (!isReady) {
-        disconnectFromDevice();
-        _Pop();
-      }
-    });
-
-    await widget.device.connect();
-    discoverServices();
-  }
-
-  disconnectFromDevice() {
-    // ignore: unnecessary_null_comparison
-    if (widget.device == null) {
-      _Pop();
-      return;
-    }
-
-    widget.device.disconnect();
-  }
-
-  discoverServices() async {
-    // ignore: unnecessary_null_comparison
-    if (widget.device == null) {
-      _Pop();
-      return;
-    }
-
-    List<BluetoothService> services = await widget.device.discoverServices();
-    for (var service in services) {
-      if (service.uuid.toString() == SERVICE_UUID) {
-        for (var characteristic in service.characteristics) {
-          if (characteristic.uuid.toString() == CHARACTERISTIC_UUID) {
-            characteristic.setNotifyValue(!characteristic.isNotifying);
-            stream = characteristic.value;
-
-            setState(() {
-              isReady = true;
-            });
-          }
-
-          if (characteristic.uuid.toString() == TARGET_CHARACTERISTIC) {
-            targetCharacteristic = characteristic;
-            print("TARGET: ${targetCharacteristic.uuid.toString()}");
-          }
-        }
-      }
-    }
-
-    if (!isReady) {
-      _Pop();
-    }
-  }
-
-  writeData(String data) async {
-    if(targetCharacteristic == null) return;
-
-    List<int> bytes = utf8.encode(data);
-    targetCharacteristic.write(bytes);
-  }
-
-  Future<bool> _onWillPop() {
-    return showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('¿Estás seguro?'),
-        content: const Text('¿Quieres desconectar el dispositivo y volver atrás?'),
-        actions: [
-          TextButton(
-            style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(const Color.fromARGB(255, 218, 243, 255)),
-            ),
-            onPressed: () => Navigator.of(context).pop(false),
-            child: const Text('No')
-          ),
-          TextButton(
-            style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(const Color.fromARGB(255, 255, 75, 62)),
-              foregroundColor: MaterialStateProperty.all(Colors.white),
-            ),
-            onPressed: () {
-              disconnectFromDevice();
-              Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const MonitorEBCApp()));
-            },
-            child: const Text('Si')
-          ),
-        ],
-      ),
-    ).then((value) => false);
-  }
-
-  _Pop() {
-    Navigator.of(context).pop(true);
-  }
-
-  String _dataParser(List<int> dataFromDevice) {
-    return utf8.decode(dataFromDevice);
   }
 
   @override
@@ -255,5 +150,107 @@ class _StartExamPageState extends State<StartExamPage> {
         )
       ),
     );
+  }
+
+  connectToDevice() async {
+    // ignore: unnecessary_null_comparison
+    if (widget.device == null) {
+      _Pop();
+      return;
+    }
+
+    Timer(const Duration(seconds: 15), () {
+      if (!isReady) {
+        disconnectFromDevice();
+        _Pop();
+      }
+    });
+
+    await widget.device.connect();
+    discoverServices();
+  }
+
+  disconnectFromDevice() {
+    // ignore: unnecessary_null_comparison
+    if (widget.device == null) {
+      _Pop();
+      return;
+    }
+
+    widget.device.disconnect();
+  }
+
+  discoverServices() async {
+    // ignore: unnecessary_null_comparison
+    if (widget.device == null) {
+      _Pop();
+      return;
+    }
+
+    List<BluetoothService> services = await widget.device.discoverServices();
+    for (var service in services) {
+      if (service.uuid.toString() == SERVICE_UUID) {
+        for (var characteristic in service.characteristics) {
+          if (characteristic.uuid.toString() == CHARACTERISTIC_UUID) {
+            characteristic.setNotifyValue(!characteristic.isNotifying);
+            stream = characteristic.value;
+
+            setState(() {
+              isReady = true;
+            });
+          }
+
+          if (characteristic.uuid.toString() == TARGET_CHARACTERISTIC) {
+            targetCharacteristic = characteristic;
+          }
+        }
+      }
+    }
+
+    if (!isReady) {
+      _Pop();
+    }
+  }
+
+  writeData(String data) async {
+    // ignore: unnecessary_null_comparison
+    if(targetCharacteristic == null) return;
+
+    List<int> bytes = utf8.encode(data);
+    targetCharacteristic.write(bytes);
+  }
+
+  Future<bool> _onWillPop() {
+    return showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('¿Estás seguro?'),
+        content: const Text('¿Quieres desconectar el dispositivo y volver atrás?'),
+        actions: [
+          TextButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(const Color.fromARGB(255, 218, 243, 255)),
+            ),
+            onPressed: () => Navigator.of(context).pop(false),
+            child: const Text('No')
+          ),
+          TextButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(const Color.fromARGB(255, 255, 75, 62)),
+              foregroundColor: MaterialStateProperty.all(Colors.white),
+            ),
+            onPressed: () {
+              disconnectFromDevice();
+              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => const MonitorEBCApp()), (Route route) => false);
+            },
+            child: const Text('Si')
+          ),
+        ],
+      ),
+    ).then((value) => false);
+  }
+
+  _Pop() {
+    Navigator.of(context).pop(true);
   }
 }
