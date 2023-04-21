@@ -46,6 +46,7 @@ class _ChartsPageState extends State<ChartsPage> {
   List<MyData> _dataListX2 = List.empty(growable: true); /* Lista 2 para grafico kpa */
   List<MyData> _dataListY = List.empty(growable: true); /* Lista para grafico % */
   List<MyData> _dataListY2 = List.empty(growable: true); /* Lista 2 para grafico % */
+  List<MyData> _fullDataList = List.empty(growable: true); /* Lista historica de datos */
 
   int _segundosTranscurridos = 0; /* segundos transcurridos desde que empieza el examen */
   int _minutosTranscurridos = 0; /* minutos transcurridos desde que empieza el examen */
@@ -275,14 +276,15 @@ class _ChartsPageState extends State<ChartsPage> {
       _dataList.add(MyData(_dataList.length, valor));
       _dataListX.add(MyData(_dataListX.length, (valor * 0.133322)));
       _dataListY.add(MyData(_dataListY.length, (valor / 7.6)));
-      // print("${_dataList.length}: $valor");
+
+      _fullDataList.add(MyData(_fullDataList.length, valor));
 
     } else {
       for (var element in _dataList.getRange(_dataList.length - 299, _dataList.length)) {
         _dataList2.add(MyData(_dataList2.length, element.yValue));
         _dataListX2.add(MyData(_dataListX2.length, (element.yValue * 0.133322)));
         _dataListY2.add(MyData(_dataListY2.length, (element.yValue / 7.6)));
-        // print("${element.xValue},${element.yValue}");
+
       }
       _dataList = _dataList2;
       _dataListX = _dataListX2;
@@ -294,9 +296,10 @@ class _ChartsPageState extends State<ChartsPage> {
       _dataListX2 = [];
       _dataListY2 = [];
       
-      // print("LISTA 1: ${_dataList.length}");
+      _fullDataList.add(MyData(_fullDataList.length, valor));
       
     }
+    print("DATOS TOTALES: ${_fullDataList.length}");
   }
   /* ==================== FIN AGREGAR DATOS A LINE CHART ==================== */
 
