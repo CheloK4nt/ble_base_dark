@@ -1,3 +1,7 @@
+android_path_provider
+2.12
+file:///C:/Users/desarrollador5.itisb/AppData/Local/Pub/Cache/hosted/pub.dev/android_path_provider-0.3.0/
+file:///C:/Users/desarrollador5.itisb/AppData/Local/Pub/Cache/hosted/pub.dev/android_path_provider-0.3.0/lib/
 async
 2.18
 file:///C:/Users/desarrollador5.itisb/AppData/Local/Pub/Cache/hosted/pub.dev/async-2.10.0/
@@ -102,6 +106,18 @@ path
 2.12
 file:///C:/Users/desarrollador5.itisb/AppData/Local/Pub/Cache/hosted/pub.dev/path-1.8.2/
 file:///C:/Users/desarrollador5.itisb/AppData/Local/Pub/Cache/hosted/pub.dev/path-1.8.2/lib/
+path_provider
+2.17
+file:///C:/Users/desarrollador5.itisb/AppData/Local/Pub/Cache/hosted/pub.dev/path_provider-2.0.14/
+file:///C:/Users/desarrollador5.itisb/AppData/Local/Pub/Cache/hosted/pub.dev/path_provider-2.0.14/lib/
+path_provider_android
+2.17
+file:///C:/Users/desarrollador5.itisb/AppData/Local/Pub/Cache/hosted/pub.dev/path_provider_android-2.0.25/
+file:///C:/Users/desarrollador5.itisb/AppData/Local/Pub/Cache/hosted/pub.dev/path_provider_android-2.0.25/lib/
+path_provider_foundation
+2.18
+file:///C:/Users/desarrollador5.itisb/AppData/Local/Pub/Cache/hosted/pub.dev/path_provider_foundation-2.2.2/
+file:///C:/Users/desarrollador5.itisb/AppData/Local/Pub/Cache/hosted/pub.dev/path_provider_foundation-2.2.2/lib/
 path_provider_linux
 2.17
 file:///C:/Users/desarrollador5.itisb/AppData/Local/Pub/Cache/hosted/pub.dev/path_provider_linux-2.1.10/

@@ -2,12 +2,15 @@
 
 import 'dart:async';
 import 'dart:convert' show utf8;
+import 'dart:io';
 import 'dart:math';
 
 import 'package:ble_base/main.dart';
+import 'package:ble_base/pages/export_page/export_page.dart';
 import 'package:ble_base/pages/home_page/home_page.dart';
 import 'package:ble_base/providers/ui_provider.dart';
 import 'package:ble_base/widgets/charts_page_wg/chart_selector.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 
@@ -15,6 +18,7 @@ import 'dart:developer' as logdev;
 
 import 'package:community_charts_flutter/community_charts_flutter.dart' as charts;
 import 'package:provider/provider.dart';
+import 'package:path_provider/path_provider.dart';
 
 /* DECLARACIONES LINE CHART */
 class MyData {
@@ -35,10 +39,14 @@ class ChartsPage extends StatefulWidget {
 }
 
 class _ChartsPageState extends State<ChartsPage> {
+
   final String SERVICE_UUID = "4fafc201-1fb5-459e-8fcc-c5c9c331914b";
   final String CHARACTERISTIC_UUID = "beb5483e-36e1-4688-b7f5-ea07361b26a8";
+  final String TARGET_CHARACTERISTIC = "beb5482e-36e1-4688-b7f5-ea07361b26a8";
   bool isReady = false;
+  bool fillList = true;
   Stream<List<int>>? stream;
+  late BluetoothCharacteristic targetCharacteristic;
 
   List<MyData> _dataList = List.empty(growable: true); /* Lista para grafico mmhg */
   List<MyData> _dataList2 = List.empty(growable: true); /* Lista 2 grafico mmhg */
@@ -46,7 +54,7 @@ class _ChartsPageState extends State<ChartsPage> {
   List<MyData> _dataListX2 = List.empty(growable: true); /* Lista 2 para grafico kpa */
   List<MyData> _dataListY = List.empty(growable: true); /* Lista para grafico % */
   List<MyData> _dataListY2 = List.empty(growable: true); /* Lista 2 para grafico % */
-  List<MyData> _fullDataList = List.empty(growable: true); /* Lista historica de datos */
+  List _fullDataList = List.empty(growable: true); /* Lista historica de datos */
 
   int _segundosTranscurridos = 0; /* segundos transcurridos desde que empieza el examen */
   int _minutosTranscurridos = 0; /* minutos transcurridos desde que empieza el examen */
@@ -90,6 +98,7 @@ class _ChartsPageState extends State<ChartsPage> {
 
   @override
   Widget build(BuildContext context) {
+
     final uiProvider = context.watch<UIProvider>().selectedUnity;
     var seriesList = [
       charts.Series<MyData, num>(
@@ -128,12 +137,12 @@ class _ChartsPageState extends State<ChartsPage> {
                 var currentValue = _dataParser(snapshot.data!);
 
                 if (_dataList.isEmpty){
-                  _addData(0);
+                  _addData(0, fillList);
                 }
 
                 Future.delayed(Duration.zero,(){
                   setState(() {
-                    _addData(double.tryParse(currentValue) ?? 0);
+                    _addData(double.tryParse(currentValue) ?? 0, fillList);
                   });
                 });
                 
@@ -154,6 +163,8 @@ class _ChartsPageState extends State<ChartsPage> {
                         ),
                       ),
                       const ChartSelector(),
+
+                      /* ==================== VALOR ACTUAL ==================== */
                       Expanded(
                         flex: 1,
                         child: Column(
@@ -166,16 +177,25 @@ class _ChartsPageState extends State<ChartsPage> {
                             ?Text('$currentValue mmHg', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24))
                             : (uiProvider == "Grafico kpa")
                               ?Text('${((double.tryParse(currentValue) ?? 0) * 0.133322).toStringAsFixed(2)} kpa', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24))
-                              :Text('${((double.tryParse(currentValue) ?? 0) / 7.6).toStringAsFixed(2)}%', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24))
+                              :Text('${((double.tryParse(currentValue) ?? 0) / 7.6).toStringAsFixed(2)}%', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
                             /* ========== FIN CONDICIONAL ========== */
+
+                            /* ========== TERMINAR EXAMEN ========== */
+                            ElevatedButton(
+                              onPressed: () => _stopExamModal(),
+                              child: const Text("Terminar Exámen"),
+                            ),
+                            /* ========== FIN TERMINAR EXAMEN ========== */
                           ]
                         ),
                       ),
+                      /* ==================== FIN VALOR ACTUAL ==================== */
+
+                      /* ==================== GRAFICO ==================== */
                       Expanded(
                         flex: 1,
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
-                          /* =============== LINE CHART =============== */
                           child: charts.LineChart(
                             seriesList,
                             animate: false,
@@ -240,9 +260,9 @@ class _ChartsPageState extends State<ChartsPage> {
                               /* ================================================== */
                             ),
                           ),
-                          /* =============== END LINE CHART =============== */
                         ),
                       )
+                      /* ==================== FIN GRAFICO ==================== */
                     ],
                   )
                 );
@@ -271,13 +291,16 @@ class _ChartsPageState extends State<ChartsPage> {
   }
 
   /* ==================== AGREGAR DATOS A LINE CHART ==================== */
-  void _addData(valor) {
+  void _addData(valor, fillList) {
     if (_dataList.length < 300) {
       _dataList.add(MyData(_dataList.length, valor));
       _dataListX.add(MyData(_dataListX.length, (valor * 0.133322)));
       _dataListY.add(MyData(_dataListY.length, (valor / 7.6)));
 
-      _fullDataList.add(MyData(_fullDataList.length, valor));
+      if (fillList == true) {
+        _fullDataList.add("${_fullDataList.length}-$valor");
+      }
+      
 
     } else {
       for (var element in _dataList.getRange(_dataList.length - 299, _dataList.length)) {
@@ -296,12 +319,22 @@ class _ChartsPageState extends State<ChartsPage> {
       _dataListX2 = [];
       _dataListY2 = [];
       
-      _fullDataList.add(MyData(_fullDataList.length, valor));
+      if (fillList == true) {
+        _fullDataList.add("${_fullDataList.length}-$valor");
+      }
       
     }
-    print("DATOS TOTALES: ${_fullDataList.length}");
+    // print("DATOS TOTALES: ${_fullDataList.length}");
   }
   /* ==================== FIN AGREGAR DATOS A LINE CHART ==================== */
+
+  writeData(String data) async {
+    // ignore: unnecessary_null_comparison
+    if(targetCharacteristic == null) return;
+
+    List<int> bytes = utf8.encode(data);
+    targetCharacteristic.write(bytes);
+  }
 
   /* ==================== CONECTAR A DISPOSITIVO ==================== */
   connectToDevice() async {
@@ -343,6 +376,10 @@ class _ChartsPageState extends State<ChartsPage> {
               isReady = true;
             });
           }
+
+          if (characteristic.uuid.toString() == TARGET_CHARACTERISTIC) {
+            targetCharacteristic = characteristic;
+          }
         }
       }
     }
@@ -365,7 +402,7 @@ class _ChartsPageState extends State<ChartsPage> {
   }
   /* ==================== FIN DESCONECTAR DISPOSITIVO ==================== */
 
-  /* ==================== CUADRO DESCONECTAR DISPOSITIVO ==================== */
+  /* ==================== MODAL VOLVER ATRAS ==================== */
   Future<bool> _onWillPop() {
     return showDialog(
       context: context,
@@ -395,7 +432,42 @@ class _ChartsPageState extends State<ChartsPage> {
       ),
     ).then((value) => false);
   }
-  /* ==================== FIN CUADRO DESCONECTAR DISPOSITIVO ==================== */
+  /* ==================== FIN MODAL VOLVER ATRAS ==================== */
+
+  /* ==================== MODAL TERMINAR EXAMEN ==================== */
+  _stopExamModal() {
+    return showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('¿Estás seguro?'),
+        content: const Text('¿Quiere finalizar el exámen?'),
+        actions: [
+          TextButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(const Color.fromARGB(255, 218, 243, 255)),
+            ),
+            onPressed: () => Navigator.of(context).pop(false),
+            child: const Text('No')
+          ),
+          TextButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(const Color.fromARGB(255, 255, 75, 62)),
+              foregroundColor: MaterialStateProperty.all(Colors.white),
+            ),
+            onPressed: () {
+              writeData("0");
+              disconnectFromDevice();
+              fillList = false;
+              print(_fullDataList.length);
+              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => ExportPage(fullDataList: _fullDataList)), (Route route) => false);
+            },
+            child: const Text('Terminar')
+          ),
+        ],
+      ),
+    ).then((value) => false);
+  }
+  /* ==================== FIN MODAL TERMINAR EXAMEN ==================== */
 
   _Pop() {
     Navigator.of(context).pop(true);

@@ -1,0 +1,12 @@
+com.mix1009.android_path_provider-jetified-window-java-1.0.0-beta04-0 C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\006d93cd422dbc43e89591147c2de572\transformed\jetified-window-java-1.0.0-beta04\res
+com.mix1009.android_path_provider-core-1.6.0-1 C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\4ca28c4a71705f8a687c69dda140a277\transformed\core-1.6.0\res
+com.mix1009.android_path_provider-jetified-annotation-experimental-1.1.0-2 C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\8965c941cf4bee4d72541b965c7c9d39\transformed\jetified-annotation-experimental-1.1.0\res
+com.mix1009.android_path_provider-jetified-window-1.0.0-beta04-3 C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\res
+com.mix1009.android_path_provider-main-4 C:\Users\desarrollador5.itisb\AppData\Local\Pub\Cache\hosted\pub.dev\android_path_provider-0.3.0\android\src\main\res
+com.mix1009.android_path_provider-profile-5 C:\Users\desarrollador5.itisb\AppData\Local\Pub\Cache\hosted\pub.dev\android_path_provider-0.3.0\android\src\profile\res
+com.mix1009.android_path_provider-pngs-6 C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\android_path_provider\generated\res\pngs\profile
+com.mix1009.android_path_provider-resValues-7 C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\android_path_provider\generated\res\resValues\profile
+com.mix1009.android_path_provider-rs-8 C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\android_path_provider\generated\res\rs\profile
+com.mix1009.android_path_provider-mergeProfileResources-9 C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\android_path_provider\intermediates\incremental\profile\mergeProfileResources\merged.dir
+com.mix1009.android_path_provider-mergeProfileResources-10 C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\android_path_provider\intermediates\incremental\profile\mergeProfileResources\stripped.dir
+com.mix1009.android_path_provider-merged_res-11 C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\android_path_provider\intermediates\merged_res\profile

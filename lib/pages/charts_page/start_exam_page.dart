@@ -21,10 +21,11 @@ class _StartExamPageState extends State<StartExamPage> {
   final String CHARACTERISTIC_UUID = "beb5483e-36e1-4688-b7f5-ea07361b26a8";
   final String TARGET_CHARACTERISTIC = "beb5482e-36e1-4688-b7f5-ea07361b26a8";
   bool isReady = false;
+  bool tcReady = false;
   Stream<List<int>>? stream;
   String selectedCut = "x";
   late BluetoothCharacteristic targetCharacteristic;
-
+  
   @override
   void initState() {   
     super.initState();
@@ -126,7 +127,7 @@ class _StartExamPageState extends State<StartExamPage> {
             /* ========== FIN SELECTOR MODO DE CORTE ========== */
             Padding(
               padding: const EdgeInsets.only(top: 20),
-              child: ElevatedButton(
+              child: (tcReady == true)?ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white,
                   foregroundColor: Colors.blue,
@@ -142,7 +143,7 @@ class _StartExamPageState extends State<StartExamPage> {
                     Navigator.of(context).push(MaterialPageRoute(builder: (context) => ChartsPage(device: widget.device)));}
                   :null,
                 child: const Text("INICIAR EXAMEN"),
-              ),
+              ):const LinearProgressIndicator(),
             )
                   ],
                 ),
@@ -189,8 +190,10 @@ class _StartExamPageState extends State<StartExamPage> {
 
     List<BluetoothService> services = await widget.device.discoverServices();
     for (var service in services) {
+      print("SERVICE UUID: ${service.uuid.toString()}");
       if (service.uuid.toString() == SERVICE_UUID) {
         for (var characteristic in service.characteristics) {
+          print("CHARACTERISTIC UUID: ${characteristic.descriptors}");
           if (characteristic.uuid.toString() == CHARACTERISTIC_UUID) {
             characteristic.setNotifyValue(!characteristic.isNotifying);
             stream = characteristic.value;
@@ -202,6 +205,10 @@ class _StartExamPageState extends State<StartExamPage> {
 
           if (characteristic.uuid.toString() == TARGET_CHARACTERISTIC) {
             targetCharacteristic = characteristic;
+            setState(() {
+              tcReady = true;
+            });
+            print("targetCharacteristic LISTO!");
           }
         }
       }
