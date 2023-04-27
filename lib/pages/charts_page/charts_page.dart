@@ -10,7 +10,6 @@ import 'package:ble_base/pages/export_page/export_page.dart';
 import 'package:ble_base/pages/home_page/home_page.dart';
 import 'package:ble_base/providers/ui_provider.dart';
 import 'package:ble_base/widgets/charts_page_wg/chart_selector.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 
@@ -24,14 +23,14 @@ import 'package:path_provider/path_provider.dart';
 class MyData {
   final num xValue;
   final num yValue;
-
   MyData(this.xValue, this.yValue);
 }
 /* FIN DECLARACIONES */
 
 class ChartsPage extends StatefulWidget {
-  const ChartsPage({super.key, required this.device});
+  const ChartsPage({super.key, required this.device, required this.cut_method});
   final BluetoothDevice device;
+  final String cut_method;
 
   @override
   // ignore: library_private_types_in_public_api
@@ -61,6 +60,9 @@ class _ChartsPageState extends State<ChartsPage> {
 
   late Timer _timerSeg;
   late Timer _timerMin;
+
+  String tiempo = "";
+  String totales = "";
 
   @override
   void initState() {   
@@ -98,6 +100,13 @@ class _ChartsPageState extends State<ChartsPage> {
 
   @override
   Widget build(BuildContext context) {
+
+    String corte = "";
+    if (widget.cut_method == "1") {
+      corte = "MAX.";
+    } else {
+      corte = "C50";
+    }
 
     final uiProvider = context.watch<UIProvider>().selectedUnity;
     var seriesList = [
@@ -182,7 +191,7 @@ class _ChartsPageState extends State<ChartsPage> {
 
                             /* ========== TERMINAR EXAMEN ========== */
                             ElevatedButton(
-                              onPressed: () => _stopExamModal(),
+                              onPressed: () => _stopExamModal(corte),
                               child: const Text("Terminar Exámen"),
                             ),
                             /* ========== FIN TERMINAR EXAMEN ========== */
@@ -435,7 +444,7 @@ class _ChartsPageState extends State<ChartsPage> {
   /* ==================== FIN MODAL VOLVER ATRAS ==================== */
 
   /* ==================== MODAL TERMINAR EXAMEN ==================== */
-  _stopExamModal() {
+  _stopExamModal(corte) {
     return showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -456,10 +465,11 @@ class _ChartsPageState extends State<ChartsPage> {
             ),
             onPressed: () {
               writeData("0");
+              totales = _fullDataList.length.toString();
+              tiempo = _getTiempoTotal(_minutosTranscurridos, _segundosTranscurridos);
               disconnectFromDevice();
               fillList = false;
-              print(_fullDataList.length);
-              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => ExportPage(fullDataList: _fullDataList)), (Route route) => false);
+              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => ExportPage(fullDataList: _fullDataList, corte: corte, tiempo: tiempo, totales: totales,)), (Route route) => false);
             },
             child: const Text('Terminar')
           ),
@@ -477,4 +487,22 @@ class _ChartsPageState extends State<ChartsPage> {
     return utf8.decode(dataFromDevice);
   }
 
+  _getTiempoTotal(_minutosTranscurridos, _segundosTranscurridos){
+    if (_minutosTranscurridos < 10) {
+      tiempo = "0$_minutosTranscurridos";
+      if (_segundosTranscurridos < 10){
+        tiempo = "$tiempo:0$_segundosTranscurridos";
+      } else {
+        tiempo = "$tiempo:$_segundosTranscurridos";
+      }
+    } else {
+      tiempo = "$_minutosTranscurridos";
+      if (_segundosTranscurridos < 10){
+        tiempo = "$tiempo:0$_segundosTranscurridos";
+      } else {
+        tiempo = "$tiempo:$_segundosTranscurridos";
+      }
+    }
+    return tiempo;
+  }
 }

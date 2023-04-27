@@ -139,8 +139,7 @@ class _StartExamPageState extends State<StartExamPage> {
                 onPressed: (selectedCut != "x")
                   ?(){ 
                     writeData(selectedCut);
-                    // writeData("0");
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => ChartsPage(device: widget.device)));}
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => ChartsPage(device: widget.device, cut_method: selectedCut,)));}
                   :null,
                 child: const Text("INICIAR EXAMEN"),
               ):const LinearProgressIndicator(),
