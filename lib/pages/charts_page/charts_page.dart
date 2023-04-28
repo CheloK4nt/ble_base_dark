@@ -1,4 +1,4 @@
-// ignore_for_file: non_constant_identifier_names, prefer_final_fields, unused_import
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields, unused_import, no_leading_underscores_for_local_identifiers
 
 import 'dart:async';
 import 'dart:convert' show utf8;
@@ -63,31 +63,16 @@ class _ChartsPageState extends State<ChartsPage> {
 
   String tiempo = "";
   String totales = "";
+  String maximoStr = "";
+  String corte = "";
+  double maximo = 0;
 
   @override
   void initState() {   
     super.initState();
-
-    /* DECLARACION TIMER */
-    _timerSeg = Timer.periodic(const Duration(seconds: 1), (Timer timer) {
-      setState(() {
-        _segundosTranscurridos++;
-        if (_segundosTranscurridos == 60) {
-          _segundosTranscurridos = 0;
-        }
-      });
-    });
-
-    _timerMin = Timer.periodic(const Duration(minutes: 1), (Timer timer) {
-      setState(() {
-        _minutosTranscurridos++;
-      });
-    });
-
+    initTimers();
     isReady = true; /* false */
     discoverServices();
-    // disconnectFromDevice();
-    // connectToDevice(); 
   }
 
   /* TIMER DISPOSE */
@@ -100,14 +85,6 @@ class _ChartsPageState extends State<ChartsPage> {
 
   @override
   Widget build(BuildContext context) {
-
-    String corte = "";
-    if (widget.cut_method == "1") {
-      corte = "MAX.";
-    } else {
-      corte = "C50";
-    }
-
     final uiProvider = context.watch<UIProvider>().selectedUnity;
     var seriesList = [
       charts.Series<MyData, num>(
@@ -125,15 +102,7 @@ class _ChartsPageState extends State<ChartsPage> {
         appBar: AppBar(
           title: const Text('Monitor EBC'),
         ),
-        body: Container(
-          child: !isReady
-          ? Center(
-            child: Text(
-              "Esperando...",
-              style: TextStyle(fontSize: 24, color: Theme.of(context).colorScheme.secondary),
-            ),
-          )
-          : StreamBuilder<List<int>>(
+        body: StreamBuilder<List<int>>(
             stream: stream,
             builder: (BuildContext context,
                 AsyncSnapshot<List<int>> snapshot) {
@@ -148,7 +117,6 @@ class _ChartsPageState extends State<ChartsPage> {
                 if (_dataList.isEmpty){
                   _addData(0, fillList);
                 }
-
                 Future.delayed(Duration.zero,(){
                   setState(() {
                     _addData(double.tryParse(currentValue) ?? 0, fillList);
@@ -295,12 +263,20 @@ class _ChartsPageState extends State<ChartsPage> {
             },
           ),
         )
-      ),
-    );
+      );
   }
+
+
+
+/* ------------------------------------------------------------------------------------------------------------------------------------------ */
 
   /* ==================== AGREGAR DATOS A LINE CHART ==================== */
   void _addData(valor, fillList) {
+
+    if (valor > maximo) {
+      maximo = valor;
+    }
+
     if (_dataList.length < 300) {
       _dataList.add(MyData(_dataList.length, valor));
       _dataListX.add(MyData(_dataListX.length, (valor * 0.133322)));
@@ -337,7 +313,7 @@ class _ChartsPageState extends State<ChartsPage> {
   }
   /* ==================== FIN AGREGAR DATOS A LINE CHART ==================== */
 
-  writeData(String data) async {
+  void writeData(String data) async {
     // ignore: unnecessary_null_comparison
     if(targetCharacteristic == null) return;
 
@@ -465,11 +441,15 @@ class _ChartsPageState extends State<ChartsPage> {
             ),
             onPressed: () {
               writeData("0");
-              totales = _fullDataList.length.toString();
+
+              corte = getCutString();
               tiempo = _getTiempoTotal(_minutosTranscurridos, _segundosTranscurridos);
+              totales = _fullDataList.length.toString();
+              maximoStr = maximo.toStringAsFixed(2);
               disconnectFromDevice();
+
               fillList = false;
-              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => ExportPage(fullDataList: _fullDataList, corte: corte, tiempo: tiempo, totales: totales,)), (Route route) => false);
+              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => ExportPage(fullDataList: _fullDataList, corte: corte, tiempo: tiempo, totales: totales, maximo: maximoStr,)), (Route route) => false);
             },
             child: const Text('Terminar')
           ),
@@ -479,14 +459,7 @@ class _ChartsPageState extends State<ChartsPage> {
   }
   /* ==================== FIN MODAL TERMINAR EXAMEN ==================== */
 
-  _Pop() {
-    Navigator.of(context).pop(true);
-  }
-
-  String _dataParser(List<int> dataFromDevice) {
-    return utf8.decode(dataFromDevice);
-  }
-
+/* ==================== OBTENER STRING TIEMPO TOTAL ==================== */
   _getTiempoTotal(_minutosTranscurridos, _segundosTranscurridos){
     if (_minutosTranscurridos < 10) {
       tiempo = "0$_minutosTranscurridos";
@@ -504,5 +477,42 @@ class _ChartsPageState extends State<ChartsPage> {
       }
     }
     return tiempo;
+  }
+/* ==================== FIN OBTENER STRING TIEMPO TOTAL ==================== */
+
+
+
+  getCutString (){
+    if (widget.cut_method == "1") {
+      corte = "MAX.";
+    } else {
+      corte = "C50";
+    }
+    return corte;
+  }
+
+  void initTimers (){
+    _timerSeg = Timer.periodic(const Duration(seconds: 1), (Timer timer) {
+      setState(() {
+        _segundosTranscurridos++;
+        if (_segundosTranscurridos == 60) {
+          _segundosTranscurridos = 0;
+        }
+      });
+    });
+
+    _timerMin = Timer.periodic(const Duration(minutes: 1), (Timer timer) {
+      setState(() {
+        _minutosTranscurridos++;
+      });
+    });
+  }
+
+  _Pop() {
+    Navigator.of(context).pop(true);
+  }
+
+  String _dataParser(List<int> dataFromDevice) {
+    return utf8.decode(dataFromDevice);
   }
 }

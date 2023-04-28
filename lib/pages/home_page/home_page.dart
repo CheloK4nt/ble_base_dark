@@ -15,7 +15,7 @@ class _HomePageState extends State<HomePage> {
 
   int selectedIndex = 0;
   // ignore: non_constant_identifier_names
-  DateTime pre_backpress = DateTime.now();
+  DateTime pre_backpress = DateTime.now().subtract(const Duration(days: 1));
 
   @override
   Widget build(BuildContext context) {

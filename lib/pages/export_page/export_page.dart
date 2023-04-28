@@ -1,9 +1,12 @@
 import 'package:ble_base/main.dart';
 import 'package:ble_base/utils/storage_helper.dart';
+import 'package:ble_base/widgets/export_page/cut_method_card.dart';
 import 'package:ble_base/widgets/export_page/data_card.dart';
+import 'package:ble_base/widgets/export_page/frec_resp_card.dart';
+import 'package:ble_base/widgets/export_page/max_card.dart';
+import 'package:ble_base/widgets/export_page/notes_card.dart';
+import 'package:ble_base/widgets/export_page/time_card.dart';
 import 'package:flutter/material.dart';
-
-import '../../widgets/export_page/titulo_export_page.dart';
 
 class ExportPage extends StatefulWidget {
   const ExportPage({
@@ -12,11 +15,13 @@ class ExportPage extends StatefulWidget {
     required this.corte,
     required this.tiempo,
     required this.totales,
+    required this.maximo,
   });
   final List fullDataList;
   final String corte;
   final String tiempo;
   final String totales;
+  final String maximo;
 
   @override
   State<ExportPage> createState() => _ExportPageState();
@@ -25,7 +30,8 @@ class ExportPage extends StatefulWidget {
 class _ExportPageState extends State<ExportPage> {
 
   bool creatingFile = false;
-  DateTime pre_backpress = DateTime.now();
+  // ignore: non_constant_identifier_names
+  DateTime pre_backpress = DateTime.now().subtract(const Duration(days: 1));
 
   @override
   Widget build(BuildContext context) {
@@ -72,8 +78,8 @@ class _ExportPageState extends State<ExportPage> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            DataCard(subtitulo: "DATOS TOTALES", valor: widget.totales, icono: Icons.bar_chart),
-                            const DataCard(subtitulo: "FREC. RESPIRATORIA", valor: "99999", icono: Icons.auto_graph),
+                            DataCard(valor: widget.totales),
+                            const FrecRespCard(valor: "99999"),
                           ],
                         ),
                       ),
@@ -83,8 +89,8 @@ class _ExportPageState extends State<ExportPage> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            DataCard(subtitulo: "DURACIÓN TOTAL", valor: widget.tiempo, icono: Icons.access_alarm),
-                            DataCard(subtitulo: "MÉTODO DE CORTE", valor: widget.corte, icono: Icons.blur_off),
+                            TimeCard(valor: widget.tiempo),
+                            CutMethodCard(valor: widget.corte),
                           ],
                         ),
                       ),
@@ -93,9 +99,9 @@ class _ExportPageState extends State<ExportPage> {
                         padding: const EdgeInsets.all(8.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: const [
-                            DataCard(subtitulo: "VALOR MÁXIMO", valor: "1", icono: Icons.trending_up),
-                            DataCard(subtitulo: "EXTRA 2", valor: "2", icono: Icons.abc_outlined),
+                          children: [
+                            MaxCard(valor: widget.maximo),
+                            NotesCard(valor: "2"),
                           ],
                         ),
                       ),
