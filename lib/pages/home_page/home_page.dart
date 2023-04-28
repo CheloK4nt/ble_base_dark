@@ -3,12 +3,14 @@ import 'package:ble_base/pages/home_page/find_devices_screen.dart';
 import 'package:ble_base/pages/home_page/settings_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
+
 }
 
 class _HomePageState extends State<HomePage> {
@@ -21,7 +23,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
 
     final screens = [const FindDevicesScreen(), const SettingsPage()];
-
+    
     return WillPopScope(
       onWillPop: () async{
         final timegap = DateTime.now().difference(pre_backpress);

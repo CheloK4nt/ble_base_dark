@@ -33,7 +33,6 @@ void main() async {
 class MonitorEBCApp extends StatelessWidget {
   const MonitorEBCApp({Key? key}) : super(key: key);
 
-  @override
   Widget build(BuildContext context) {
     return Consumer<ThemeProvider>(
       builder: (context, value, child) {
