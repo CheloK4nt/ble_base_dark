@@ -72,6 +72,22 @@ MERGED from [:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyect
 		ADDED from [:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:22:9-35
 	android:name
 		ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:4:27-76
+uses-permission#android.permission.BLUETOOTH_SCAN
+ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:5:13-80
+MERGED from [:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:13:5-73
+MERGED from [:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:13:5-73
+	android:name
+		ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:5:30-78
+uses-permission#android.permission.BLUETOOTH_ADVERTISE
+ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:6:13-85
+	android:name
+		ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:6:30-83
+uses-permission#android.permission.BLUETOOTH_CONNECT
+ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:7:13-83
+MERGED from [:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:14:5-76
+MERGED from [:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:14:5-76
+	android:name
+		ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:7:30-81
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
 ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:9:10-85
 	android:name
@@ -164,14 +180,6 @@ uses-permission#android.permission.INTERNET
 ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\debug\AndroidManifest.xml:7:5-66
 	android:name
 		ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\debug\AndroidManifest.xml:7:22-64
-uses-permission#android.permission.BLUETOOTH_SCAN
-ADDED from [:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:13:5-73
-	android:name
-		ADDED from [:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:13:22-70
-uses-permission#android.permission.BLUETOOTH_CONNECT
-ADDED from [:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:14:5-76
-	android:name
-		ADDED from [:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:14:22-73
 uses-permission#android.permission.ACCESS_FINE_LOCATION
 ADDED from [:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:23:5-79
 	android:name

@@ -27,102 +27,96 @@
 20-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:4:27-76
 21        android:maxSdkVersion="30" />
 21-->[:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:22:9-35
-22    <!--
-23 <uses-permission android:name="android.permission.BLUETOOTH_SCAN"/>
-24            <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE"/>
-25            <uses-permission android:name="android.permission.BLUETOOTH_CONNECT"/>
-26    -->
-27    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-27-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:9:10-85
-27-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:9:27-83
-28    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-28-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:10:13-88
-28-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:10:30-86
-29    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
-29-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:11:13-88
-29-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:11:30-86
-30    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-30-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:12:13-87
-30-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:12:30-85
-31    <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
-31-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:13:13-88
-31-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:13:30-85
-32    <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
-32-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:14:13-87
-32-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:14:30-85
-33    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
-33-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:15:13-89
-33-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:15:30-87
-34    <uses-permission android:name="android.permission.ACTION_MANAGE_WRITE_SETTINGS" />
-34-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:16:13-95
-34-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:16:30-92
-35    <!--
-36         New Bluetooth permissions in Android 12
-37           https://developer.android.com/about/versions/12/features/bluetooth-permissions
-38    -->
-39    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
-39-->[:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:13:5-73
-39-->[:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:13:22-70
-40    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
-40-->[:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:14:5-76
-40-->[:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:14:22-73
-41    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-41-->[:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:23:5-79
-41-->[:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:23:22-76
-42
-43    <application
-44        android:name="android.app.Application"
-45        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-45-->[androidx.core:core:1.6.0] C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\4ca28c4a71705f8a687c69dda140a277\transformed\core-1.6.0\AndroidManifest.xml:24:18-86
-46        android:debuggable="true"
-47        android:icon="@mipmap/ic_launcher"
-48        android:label="Monitor EBC"
-49        android:requestLegacyExternalStorage="true" >
-50        <activity
-51            android:name="com.example.ble_base.MainActivity"
-52            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-53            android:exported="true"
-54            android:hardwareAccelerated="true"
-55            android:launchMode="singleTop"
-56            android:theme="@style/LaunchTheme"
-57            android:windowSoftInputMode="adjustResize" >
-58
-59            <!--
-60                 Specifies an Android theme to apply to this Activity as soon as
-61                 the Android process has started. This theme is visible to the user
-62                 while the Flutter UI initializes. After that, this theme continues
-63                 to determine the Window background behind the Flutter UI.
-64            -->
-65            <meta-data
-66                android:name="io.flutter.embedding.android.NormalTheme"
-67                android:resource="@style/NormalTheme" />
-68
-69            <intent-filter>
-70                <action android:name="android.intent.action.MAIN" />
-71
-72                <category android:name="android.intent.category.LAUNCHER" />
-73            </intent-filter>
-74        </activity>
-75        <!--
-76             Don't delete the meta-data below.
-77             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
-78        -->
-79        <meta-data
-80            android:name="flutterEmbedding"
-81            android:value="2" />
+22    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+22-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:5:13-80
+22-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:5:30-78
+23    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
+23-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:6:13-85
+23-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:6:30-83
+24    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+24-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:7:13-83
+24-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:7:30-81
+25    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+25-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:9:10-85
+25-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:9:27-83
+26    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+26-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:10:13-88
+26-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:10:30-86
+27    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+27-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:11:13-88
+27-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:11:30-86
+28    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+28-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:12:13-87
+28-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:12:30-85
+29    <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
+29-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:13:13-88
+29-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:13:30-85
+30    <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
+30-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:14:13-87
+30-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:14:30-85
+31    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+31-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:15:13-89
+31-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:15:30-87
+32    <uses-permission android:name="android.permission.ACTION_MANAGE_WRITE_SETTINGS" />
+32-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:16:13-95
+32-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:16:30-92
+33    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+33-->[:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:23:5-79
+33-->[:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:23:22-76
+34
+35    <application
+36        android:name="android.app.Application"
+37        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+37-->[androidx.core:core:1.6.0] C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\4ca28c4a71705f8a687c69dda140a277\transformed\core-1.6.0\AndroidManifest.xml:24:18-86
+38        android:debuggable="true"
+39        android:icon="@mipmap/ic_launcher"
+40        android:label="Monitor EBC"
+41        android:requestLegacyExternalStorage="true" >
+42        <activity
+43            android:name="com.example.ble_base.MainActivity"
+44            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+45            android:exported="true"
+46            android:hardwareAccelerated="true"
+47            android:launchMode="singleTop"
+48            android:theme="@style/LaunchTheme"
+49            android:windowSoftInputMode="adjustResize" >
+50
+51            <!--
+52                 Specifies an Android theme to apply to this Activity as soon as
+53                 the Android process has started. This theme is visible to the user
+54                 while the Flutter UI initializes. After that, this theme continues
+55                 to determine the Window background behind the Flutter UI.
+56            -->
+57            <meta-data
+58                android:name="io.flutter.embedding.android.NormalTheme"
+59                android:resource="@style/NormalTheme" />
+60
+61            <intent-filter>
+62                <action android:name="android.intent.action.MAIN" />
+63
+64                <category android:name="android.intent.category.LAUNCHER" />
+65            </intent-filter>
+66        </activity>
+67        <!--
+68             Don't delete the meta-data below.
+69             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+70        -->
+71        <meta-data
+72            android:name="flutterEmbedding"
+73            android:value="2" />
+74
+75        <uses-library
+75-->[androidx.window:window:1.0.0-beta04] C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
+76            android:name="androidx.window.extensions"
+76-->[androidx.window:window:1.0.0-beta04] C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
+77            android:required="false" />
+77-->[androidx.window:window:1.0.0-beta04] C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
+78        <uses-library
+78-->[androidx.window:window:1.0.0-beta04] C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
+79            android:name="androidx.window.sidecar"
+79-->[androidx.window:window:1.0.0-beta04] C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
+80            android:required="false" />
+80-->[androidx.window:window:1.0.0-beta04] C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
+81    </application>
 82
-83        <uses-library
-83-->[androidx.window:window:1.0.0-beta04] C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
-84            android:name="androidx.window.extensions"
-84-->[androidx.window:window:1.0.0-beta04] C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
-85            android:required="false" />
-85-->[androidx.window:window:1.0.0-beta04] C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
-86        <uses-library
-86-->[androidx.window:window:1.0.0-beta04] C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
-87            android:name="androidx.window.sidecar"
-87-->[androidx.window:window:1.0.0-beta04] C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
-88            android:required="false" />
-88-->[androidx.window:window:1.0.0-beta04] C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
-89    </application>
-90
-91</manifest>
+83</manifest>
