@@ -11,7 +11,6 @@ class BluetoothOffScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: Colors.blue,
       body: Center(
@@ -53,7 +52,14 @@ class BluetoothOffScreen extends StatelessWidget {
                 foregroundColor: Colors.blue
               ),
               onPressed: Platform.isAndroid
-                  ? () => FlutterBluePlus.instance.turnOn()
+                  ? () async {
+                    if (await Permission.location.isGranted) {
+                      print("bt concedido");
+                      FlutterBluePlus.instance.turnOn();
+                    } else {
+                      print("bt denegado");
+                    }
+                  }
                   : null,
               child: const Text('Encender BT'),
             ),

@@ -54,12 +54,16 @@ class _ChartsPageState extends State<ChartsPage> {
   List<MyData> _dataListY = List.empty(growable: true); /* Lista para grafico % */
   List<MyData> _dataListY2 = List.empty(growable: true); /* Lista 2 para grafico % */
   List _fullDataList = List.empty(growable: true); /* Lista historica de datos */
+  String _fullDataString = "";
 
+  int _miliSegundosTranscurridos = 0; /* milisegundos transcurridos desde que empieza el examen */
   int _segundosTranscurridos = 0; /* segundos transcurridos desde que empieza el examen */
   int _minutosTranscurridos = 0; /* minutos transcurridos desde que empieza el examen */
 
+  late Timer _timerMiliSeg;
   late Timer _timerSeg;
   late Timer _timerMin;
+  String min="00", seg ="00", mili = "0000";
 
   String tiempo = "";
   String totales = "";
@@ -78,6 +82,7 @@ class _ChartsPageState extends State<ChartsPage> {
   /* TIMER DISPOSE */
   @override
   void dispose() {
+    _timerMiliSeg.cancel();
     _timerSeg.cancel();
     _timerMin.cancel();
     super.dispose();
@@ -280,19 +285,12 @@ class _ChartsPageState extends State<ChartsPage> {
     if (_dataList.length < 300) {
       _dataList.add(MyData(_dataList.length, valor));
       _dataListX.add(MyData(_dataListX.length, (valor * 0.133322)));
-      _dataListY.add(MyData(_dataListY.length, (valor / 7.6)));
-
-      if (fillList == true) {
-        _fullDataList.add("${_fullDataList.length}-$valor");
-      }
-      
-
+      _dataListY.add(MyData(_dataListY.length, (valor / 7.6)));      
     } else {
       for (var element in _dataList.getRange(_dataList.length - 299, _dataList.length)) {
         _dataList2.add(MyData(_dataList2.length, element.yValue));
         _dataListX2.add(MyData(_dataListX2.length, (element.yValue * 0.133322)));
         _dataListY2.add(MyData(_dataListY2.length, (element.yValue / 7.6)));
-
       }
       _dataList = _dataList2;
       _dataListX = _dataListX2;
@@ -302,14 +300,12 @@ class _ChartsPageState extends State<ChartsPage> {
       _dataListY.add(MyData(_dataListY.length, (valor / 7.6)));
       _dataList2 = [];
       _dataListX2 = [];
-      _dataListY2 = [];
-      
-      if (fillList == true) {
-        _fullDataList.add("${_fullDataList.length}-$valor");
-      }
-      
+      _dataListY2 = [];  
     }
-    // print("DATOS TOTALES: ${_fullDataList.length}");
+    if (fillList == true) {
+      _fullDataList.add("$min$seg$mili-$valor");
+      _fullDataString = "$_fullDataString$min$seg$mili-$valor;\n";
+    }
   }
   /* ==================== FIN AGREGAR DATOS A LINE CHART ==================== */
 
@@ -449,7 +445,7 @@ class _ChartsPageState extends State<ChartsPage> {
               disconnectFromDevice();
 
               fillList = false;
-              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => ExportPage(fullDataList: _fullDataList, corte: corte, tiempo: tiempo, totales: totales, maximo: maximoStr,)), (Route route) => false);
+              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => ExportPage(fullDataString: _fullDataString, fullDataList: _fullDataList, corte: corte, tiempo: tiempo, totales: totales, maximo: maximoStr,)), (Route route) => false);
             },
             child: const Text('Terminar')
           ),
@@ -492,11 +488,36 @@ class _ChartsPageState extends State<ChartsPage> {
   }
 
   void initTimers (){
+    _timerMiliSeg = Timer.periodic(const Duration(milliseconds: 1), (Timer timer) {
+      setState(() {
+        _miliSegundosTranscurridos++;
+        if (_miliSegundosTranscurridos == 1000) {
+          _miliSegundosTranscurridos = 0;
+        }
+
+        if (_miliSegundosTranscurridos < 10){
+          mili = "000$_miliSegundosTranscurridos";
+        } else if (_miliSegundosTranscurridos < 100){
+          mili = "00$_miliSegundosTranscurridos";
+        } else if (_miliSegundosTranscurridos < 1000){
+          mili = "0$_miliSegundosTranscurridos";
+        } else {
+          mili = "$_miliSegundosTranscurridos";
+        }
+      });
+    });
+
     _timerSeg = Timer.periodic(const Duration(seconds: 1), (Timer timer) {
       setState(() {
         _segundosTranscurridos++;
         if (_segundosTranscurridos == 60) {
           _segundosTranscurridos = 0;
+        }
+
+        if (_segundosTranscurridos < 10){
+          seg = "0$_segundosTranscurridos";
+        } else if (_segundosTranscurridos < 60){
+          seg = "$_segundosTranscurridos";
         }
       });
     });
@@ -504,6 +525,12 @@ class _ChartsPageState extends State<ChartsPage> {
     _timerMin = Timer.periodic(const Duration(minutes: 1), (Timer timer) {
       setState(() {
         _minutosTranscurridos++;
+
+        if (_minutosTranscurridos < 10){
+          min = "0$_minutosTranscurridos";
+        } else if (_minutosTranscurridos < 60){
+          min = "$_minutosTranscurridos";
+        }
       });
     });
   }

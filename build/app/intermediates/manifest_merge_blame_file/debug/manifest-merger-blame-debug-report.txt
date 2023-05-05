@@ -15,54 +15,48 @@
 15    <uses-permission android:name="android.permission.INTERNET" />
 15-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\debug\AndroidManifest.xml:7:5-66
 15-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\debug\AndroidManifest.xml:7:22-64
-16    <uses-permission
-16-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:3:13-75
-17        android:name="android.permission.BLUETOOTH"
-17-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:3:30-73
-18        android:maxSdkVersion="30" />
-18-->[:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:19:9-35
-19    <uses-permission
-19-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:4:10-78
-20        android:name="android.permission.BLUETOOTH_ADMIN"
-20-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:4:27-76
-21        android:maxSdkVersion="30" />
-21-->[:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:22:9-35
-22    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
-22-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:5:13-80
-22-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:5:30-78
-23    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
-23-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:6:13-85
-23-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:6:30-83
-24    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
-24-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:7:13-83
-24-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:7:30-81
-25    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-25-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:9:10-85
-25-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:9:27-83
-26    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-26-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:10:13-88
-26-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:10:30-86
-27    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
-27-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:11:13-88
-27-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:11:30-86
-28    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-28-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:12:13-87
-28-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:12:30-85
-29    <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
-29-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:13:13-88
-29-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:13:30-85
-30    <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
-30-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:14:13-87
-30-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:14:30-85
-31    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
-31-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:15:13-89
-31-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:15:30-87
-32    <uses-permission android:name="android.permission.ACTION_MANAGE_WRITE_SETTINGS" />
-32-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:16:13-95
-32-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:16:30-92
-33    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-33-->[:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:23:5-79
-33-->[:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:23:22-76
+16    <!-- Permissions options for the `storage` group -->
+17    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+17-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:5:5-79
+17-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:5:22-77
+18    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- Permissions options for the `manage external storage` group -->
+18-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:6:5-80
+18-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:6:22-78
+19    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" /> <!-- Permissions options for the `location` group -->
+19-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:8:5-82
+19-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:8:22-79
+20    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+20-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:11:5-79
+20-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:11:22-76
+21    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+21-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:12:5-81
+21-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:12:22-78
+22    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" /> <!-- Permissions options for the `nearby devices` group -->
+22-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:13:5-85
+22-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:13:22-82
+23    <!-- <uses-permission android:name="android.permission.BLUETOOTH" /> -->
+24    <!-- <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" /> -->
+25    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+25-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:18:5-73
+25-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:18:22-70
+26    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
+26-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:19:5-78
+26-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:19:22-75
+27    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" /> <!-- Request legacy Bluetooth permissions on older devices. -->
+27-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:20:5-76
+27-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:20:22-73
+28    <uses-permission
+28-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:23:5-95
+29        android:name="android.permission.BLUETOOTH"
+29-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:23:22-65
+30        android:maxSdkVersion="30" />
+30-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:23:66-92
+31    <uses-permission
+31-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:24:5-101
+32        android:name="android.permission.BLUETOOTH_ADMIN"
+32-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:24:22-71
+33        android:maxSdkVersion="30" />
+33-->C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:24:72-98
 34
 35    <application
 36        android:name="android.app.Application"

@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 application
-INJECTED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:17:4-48:19
+INJECTED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:26:4-57:19
 MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:24:5-31:19
 MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:24:5-31:19
 MERGED from [androidx.core:core:1.6.0] C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\4ca28c4a71705f8a687c69dda140a277\transformed\core-1.6.0\AndroidManifest.xml:24:5-89
@@ -12,11 +12,11 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\de
 	android:name
 		INJECTED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml
 manifest
-ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:1:1-49:12
-INJECTED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:1:1-49:12
-INJECTED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:1:1-49:12
-INJECTED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:1:1-49:12
-MERGED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:1:1-49:12
+ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:1:1-58:12
+INJECTED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:1:1-58:12
+INJECTED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:1:1-58:12
+INJECTED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:1:1-58:12
+MERGED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:1:1-58:12
 MERGED from [:shared_preferences_android] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\shared_preferences_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:permission_handler_android] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\permission_handler_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-25:12
@@ -48,78 +48,72 @@ INJECTED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\
 		INJECTED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\debug\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:1:1-49:12
+		ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:1:1-58:12
 		INJECTED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\debug\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:1:1-49:12
+		ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:1:1-58:12
 		INJECTED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\debug\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:1:11-69
-uses-permission#android.permission.BLUETOOTH
-ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:3:13-75
-MERGED from [:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:17:5-19:38
-MERGED from [:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:17:5-19:38
-	android:maxSdkVersion
-		ADDED from [:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:19:9-35
-	android:name
-		ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:3:30-73
-uses-permission#android.permission.BLUETOOTH_ADMIN
-ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:4:10-78
-MERGED from [:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:20:5-22:38
-MERGED from [:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:20:5-22:38
-	android:maxSdkVersion
-		ADDED from [:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:22:9-35
-	android:name
-		ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:4:27-76
-uses-permission#android.permission.BLUETOOTH_SCAN
-ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:5:13-80
-MERGED from [:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:13:5-73
-MERGED from [:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:13:5-73
-	android:name
-		ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:5:30-78
-uses-permission#android.permission.BLUETOOTH_ADVERTISE
-ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:6:13-85
-	android:name
-		ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:6:30-83
-uses-permission#android.permission.BLUETOOTH_CONNECT
-ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:7:13-83
-MERGED from [:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:14:5-76
-MERGED from [:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:14:5-76
-	android:name
-		ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:7:30-81
-uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:9:10-85
-	android:name
-		ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:9:27-83
-uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:10:13-88
-	android:name
-		ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:10:30-86
-uses-permission#android.permission.WRITE_INTERNAL_STORAGE
-ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:11:13-88
-	android:name
-		ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:11:30-86
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:12:13-87
+ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:5:5-79
 	android:name
-		ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:12:30-85
-uses-permission#android.permission.READ_INTERNAL_STORAGE
-ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:13:13-88
+		ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:5:22-77
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:6:5-80
 	android:name
-		ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:13:30-85
-uses-permission#android.permission.ACCESS_MEDIA_LOCATION
-ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:14:13-87
-	android:name
-		ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:14:30-85
+		ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:6:22-78
 uses-permission#android.permission.MANAGE_EXTERNAL_STORAGE
-ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:15:13-89
+ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:8:5-82
 	android:name
-		ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:15:30-87
-uses-permission#android.permission.ACTION_MANAGE_WRITE_SETTINGS
-ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:16:13-95
+		ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:8:22-79
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:11:5-79
+MERGED from [:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:23:5-79
+MERGED from [:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:23:5-79
 	android:name
-		ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:16:30-92
+		ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:11:22-76
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:12:5-81
+	android:name
+		ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:12:22-78
+uses-permission#android.permission.ACCESS_BACKGROUND_LOCATION
+ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:13:5-85
+	android:name
+		ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:13:22-82
+uses-permission#android.permission.BLUETOOTH_SCAN
+ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:18:5-73
+MERGED from [:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:13:5-73
+MERGED from [:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:13:5-73
+	android:name
+		ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:18:22-70
+uses-permission#android.permission.BLUETOOTH_ADVERTISE
+ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:19:5-78
+	android:name
+		ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:19:22-75
+uses-permission#android.permission.BLUETOOTH_CONNECT
+ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:20:5-76
+MERGED from [:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:14:5-76
+MERGED from [:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:14:5-76
+	android:name
+		ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:20:22-73
+uses-permission#android.permission.BLUETOOTH
+ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:23:5-95
+MERGED from [:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:17:5-19:38
+MERGED from [:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:17:5-19:38
+	android:maxSdkVersion
+		ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:23:66-92
+	android:name
+		ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:23:22-65
+uses-permission#android.permission.BLUETOOTH_ADMIN
+ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:24:5-101
+MERGED from [:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:20:5-22:38
+MERGED from [:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:20:5-22:38
+	android:maxSdkVersion
+		ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:24:72-98
+	android:name
+		ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml:24:22-71
 uses-sdk
 INJECTED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\main\AndroidManifest.xml
@@ -180,10 +174,6 @@ uses-permission#android.permission.INTERNET
 ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\debug\AndroidManifest.xml:7:5-66
 	android:name
 		ADDED from C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\android\app\src\debug\AndroidManifest.xml:7:22-64
-uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from [:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:23:5-79
-	android:name
-		ADDED from [:flutter_blue_plus] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\flutter_blue_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:23:22-76
 uses-library#androidx.window.extensions
 ADDED from [androidx.window:window:1.0.0-beta04] C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
 	android:required

@@ -20,10 +20,10 @@ class _HomePageState extends State<HomePage> {
   DateTime pre_backpress = DateTime.now().subtract(const Duration(days: 1));
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context){
 
     final screens = [const FindDevicesScreen(), const SettingsPage()];
-    
+  
     return WillPopScope(
       onWillPop: () async{
         final timegap = DateTime.now().difference(pre_backpress);
@@ -82,8 +82,13 @@ class _HomePageState extends State<HomePage> {
             } else {
               return FloatingActionButton(
                   child: const Icon(Icons.search),
-                  onPressed: () => FlutterBluePlus.instance.startScan(timeout: const Duration(seconds: 4)
-                )
+                  onPressed: () async {
+                    if (await Permission.location.isGranted) {
+                      FlutterBluePlus.instance.startScan(timeout: const Duration(seconds: 4));
+                    } else {
+                      locationPermissionDialog();
+                    }
+                  }
               );
             }
           }
@@ -91,5 +96,28 @@ class _HomePageState extends State<HomePage> {
         : null,
       ),
     );
+  }
+
+  Future<bool> locationPermissionDialog() {
+    return showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Conceder permiso'),
+        content: const Text('Debe conceder permiso de ubicación en su dispositivo para encontrar dispositivos cercanos.'),
+        actions: [
+          TextButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(const Color.fromARGB(255, 218, 243, 255)),
+            ),
+            onPressed: (){
+              // Permission.location.request();
+              Permission.locationWhenInUse.request();
+              Navigator.of(context).pop(false);
+            },
+            child: const Text("Conceder Permiso")
+          ),
+        ],
+      ),
+    ).then((value) => false);
   }
 }
