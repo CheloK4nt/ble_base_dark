@@ -38,13 +38,13 @@ class _BTPermissionPageState extends State<BTPermissionPage> {
             child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Padding(
-              padding: const EdgeInsets.all(15.0),
+            const Padding(
+              padding: EdgeInsets.all(15.0),
               child: Text("Debe conceder permisos de DISPOSITIVOS CERCANOS para poder acceder a las funciones"),
             ),
             ElevatedButton(
               onPressed: () => openAppSettings(),
-              child: Text("Ir a ajustes")
+              child: const Text("Ir a ajustes")
               )
             ],
         )),

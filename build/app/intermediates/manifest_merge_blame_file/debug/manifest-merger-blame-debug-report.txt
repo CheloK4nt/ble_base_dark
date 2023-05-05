@@ -99,18 +99,45 @@
 72            android:name="flutterEmbedding"
 73            android:value="2" />
 74
-75        <uses-library
-75-->[androidx.window:window:1.0.0-beta04] C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
-76            android:name="androidx.window.extensions"
-76-->[androidx.window:window:1.0.0-beta04] C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
-77            android:required="false" />
-77-->[androidx.window:window:1.0.0-beta04] C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
-78        <uses-library
-78-->[androidx.window:window:1.0.0-beta04] C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
-79            android:name="androidx.window.sidecar"
-79-->[androidx.window:window:1.0.0-beta04] C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
-80            android:required="false" />
-80-->[androidx.window:window:1.0.0-beta04] C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
-81    </application>
-82
-83</manifest>
+75        <service
+75-->[:location] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\location\intermediates\merged_manifest\debug\AndroidManifest.xml:13:9-17:56
+76            android:name="com.lyokone.location.FlutterLocationService"
+76-->[:location] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\location\intermediates\merged_manifest\debug\AndroidManifest.xml:14:13-71
+77            android:enabled="true"
+77-->[:location] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\location\intermediates\merged_manifest\debug\AndroidManifest.xml:15:13-35
+78            android:exported="false"
+78-->[:location] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\location\intermediates\merged_manifest\debug\AndroidManifest.xml:16:13-37
+79            android:foregroundServiceType="location" />
+79-->[:location] C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\location\intermediates\merged_manifest\debug\AndroidManifest.xml:17:13-53
+80
+81        <uses-library
+81-->[androidx.window:window:1.0.0-beta04] C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
+82            android:name="androidx.window.extensions"
+82-->[androidx.window:window:1.0.0-beta04] C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
+83            android:required="false" />
+83-->[androidx.window:window:1.0.0-beta04] C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
+84        <uses-library
+84-->[androidx.window:window:1.0.0-beta04] C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
+85            android:name="androidx.window.sidecar"
+85-->[androidx.window:window:1.0.0-beta04] C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
+86            android:required="false" />
+86-->[androidx.window:window:1.0.0-beta04] C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
+87
+88        <activity
+88-->[com.google.android.gms:play-services-base:16.0.1] C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\2fe15c377afc67482281768db3606a8e\transformed\jetified-play-services-base-16.0.1\AndroidManifest.xml:23:9-26:75
+89            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+89-->[com.google.android.gms:play-services-base:16.0.1] C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\2fe15c377afc67482281768db3606a8e\transformed\jetified-play-services-base-16.0.1\AndroidManifest.xml:24:13-79
+90            android:exported="false"
+90-->[com.google.android.gms:play-services-base:16.0.1] C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\2fe15c377afc67482281768db3606a8e\transformed\jetified-play-services-base-16.0.1\AndroidManifest.xml:25:13-37
+91            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+91-->[com.google.android.gms:play-services-base:16.0.1] C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\2fe15c377afc67482281768db3606a8e\transformed\jetified-play-services-base-16.0.1\AndroidManifest.xml:26:13-72
+92
+93        <meta-data
+93-->[com.google.android.gms:play-services-basement:16.0.1] C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\1d75b34626247df88008199093464769\transformed\jetified-play-services-basement-16.0.1\AndroidManifest.xml:23:9-25:69
+94            android:name="com.google.android.gms.version"
+94-->[com.google.android.gms:play-services-basement:16.0.1] C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\1d75b34626247df88008199093464769\transformed\jetified-play-services-basement-16.0.1\AndroidManifest.xml:24:13-58
+95            android:value="@integer/google_play_services_version" />
+95-->[com.google.android.gms:play-services-basement:16.0.1] C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\1d75b34626247df88008199093464769\transformed\jetified-play-services-basement-16.0.1\AndroidManifest.xml:25:13-66
+96    </application>
+97
+98</manifest>

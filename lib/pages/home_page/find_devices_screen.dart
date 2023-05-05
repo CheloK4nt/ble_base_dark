@@ -1,4 +1,3 @@
-import 'dart:io';
 
 import 'package:ble_base/pages/charts_page/start_exam_page.dart';
 import 'package:ble_base/widgets.dart';

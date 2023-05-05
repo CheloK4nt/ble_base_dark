@@ -4,13 +4,13 @@ import 'package:ble_base/pages/home_page/settings_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:location/location.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
-
 }
 
 class _HomePageState extends State<HomePage> {
@@ -84,7 +84,18 @@ class _HomePageState extends State<HomePage> {
                   child: const Icon(Icons.search),
                   onPressed: () async {
                     if (await Permission.location.isGranted) {
-                      FlutterBluePlus.instance.startScan(timeout: const Duration(seconds: 4));
+                      Location location = Location();
+                      bool isOn = await location.serviceEnabled(); 
+                      if (!isOn) { //if defvice is off
+                        bool isturnedon = await location.requestService();
+                        if (isturnedon) {
+                            print("GPS device is turned ON");
+                        }else{
+                            print("GPS Device is still OFF");
+                        }
+                      } else {
+                        FlutterBluePlus.instance.startScan(timeout: const Duration(seconds: 4));
+                      }
                     } else {
                       locationPermissionDialog();
                     }

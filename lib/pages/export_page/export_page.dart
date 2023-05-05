@@ -104,7 +104,7 @@ class _ExportPageState extends State<ExportPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             MaxCard(valor: widget.maximo),
-                            NotesCard(valor: "2"),
+                            const NotesCard(valor: "2"),
                           ],
                         ),
                       ),

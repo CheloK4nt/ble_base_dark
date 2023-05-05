@@ -3,17 +3,12 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:ble_base/pages/bt_permission_page/bt_permission_page.dart';
-import 'package:ble_base/pages/home_page/bluetooth_off_screen.dart';
-import 'package:ble_base/pages/home_page/home_page.dart';
 import 'package:ble_base/providers/shared_pref.dart';
 import 'package:ble_base/providers/theme_provider.dart';
 import 'package:ble_base/providers/ui_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
-
-import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 
 void main() async {
 
