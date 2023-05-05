@@ -15,7 +15,7 @@ class BluetoothOffScreen extends StatelessWidget {
       backgroundColor: Colors.blue,
       body: Center(
         child: Column(
-          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
               "Monitor",
@@ -40,29 +40,26 @@ class BluetoothOffScreen extends StatelessWidget {
               // 'El adaptador bluetooth está ${state.toString().substring(15)}.',
               (state.toString().substring(15) == "turningOn")
                 ?"El adaptador BLUETOOTH se está encendiendo."
-                :"El adaptador BLUETOOTH está apagado.",
-              style: Theme.of(context)
-                  .primaryTextTheme
-                  .titleSmall
-                  ?.copyWith(color: Colors.white),
+                :"Debe encender el adaptador BLUETOOTH.",
+              overflow: TextOverflow.fade,
             ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.white,
-                foregroundColor: Colors.blue
-              ),
-              onPressed: Platform.isAndroid
-                  ? () async {
-                    if (await Permission.location.isGranted) {
-                      print("bt concedido");
-                      FlutterBluePlus.instance.turnOn();
-                    } else {
-                      print("bt denegado");
-                    }
-                  }
-                  : null,
-              child: const Text('Encender BT'),
-            ),
+            // ElevatedButton(
+            //   style: ElevatedButton.styleFrom(
+            //     backgroundColor: Colors.white,
+            //     foregroundColor: Colors.blue
+            //   ),
+            //   onPressed: Platform.isAndroid
+            //       ? () async {
+            //         if (await Permission.location.isGranted) {
+            //           print("bt concedido");
+            //           FlutterBluePlus.instance.turnOn();
+            //         } else {
+            //           print("bt denegado");
+            //         }
+            //       }
+            //       : null,
+            //   child: const Text('Encender BT'),
+            // ),
           ],
         ),
       ),
