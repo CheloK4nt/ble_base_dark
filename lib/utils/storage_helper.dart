@@ -2,8 +2,6 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:flutter/foundation.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:android_path_provider/android_path_provider.dart';
 
 class StorageHelper {
@@ -33,7 +31,7 @@ class StorageHelper {
   static Future<File> writeTextToFile(String data) async {
     final file = await _localFile;
     print("Escribiendo");
-    return file.writeAsString("$data");
+    return file.writeAsString(data);
   }
 
   // static Future<File> writeBytesToFile(String fileName, Uint8List data) async {

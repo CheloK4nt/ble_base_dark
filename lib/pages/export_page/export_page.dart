@@ -7,17 +7,20 @@ import 'package:ble_base/widgets/export_page/max_card.dart';
 import 'package:ble_base/widgets/export_page/notes_card.dart';
 import 'package:ble_base/widgets/export_page/time_card.dart';
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class ExportPage extends StatefulWidget {
   const ExportPage({
     super.key,
     required this.fullDataList,
+    required this.fullDataString,
     required this.corte,
     required this.tiempo,
     required this.totales,
     required this.maximo,
   });
   final List fullDataList;
+  final String fullDataString;
   final String corte;
   final String tiempo;
   final String totales;
@@ -101,24 +104,33 @@ class _ExportPageState extends State<ExportPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             MaxCard(valor: widget.maximo),
-                            NotesCard(valor: "2"),
+                            const NotesCard(valor: "2"),
                           ],
                         ),
+                      ),
+
+                      const Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Divider(),
                       ),
               
                       (creatingFile == false)
                         ?ElevatedButton(
-                          onPressed: (){
-                            setState(() {
-                              creatingFile = true;
-                            });
-                            StorageHelper.writeTextToFile(widget.fullDataList.toString()).then((value){
+                          onPressed: () async {
+                            if (await Permission.manageExternalStorage.isGranted) {
                               setState(() {
-                                creatingFile = false;
+                                creatingFile = true;
                               });
-                              const snack = SnackBar(content: Center(child: Text('Datos exportados satisfactoriamente.')),duration: Duration(seconds: 2),);
-                              return ScaffoldMessenger.of(context).showSnackBar(snack);
-                            });
+                              StorageHelper.writeTextToFile(widget.fullDataString.toString()).then((value){
+                                setState(() {
+                                  creatingFile = false;
+                                });
+                                const snack = SnackBar(content: Center(child: Text('Datos exportados satisfactoriamente.')),duration: Duration(seconds: 2),);
+                                return ScaffoldMessenger.of(context).showSnackBar(snack);
+                              });
+                            } else {
+                              storagePermissionDialog();
+                            }
                           },
                           child: const Text("Exportar datos")
                         )
@@ -137,4 +149,28 @@ class _ExportPageState extends State<ExportPage> {
       ),
     );
   }
+
+/* ========================================  ======================================== */
+  Future<bool> storagePermissionDialog() {
+    return showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Conceder permiso'),
+        content: const Text('Debe conceder permiso en su dispositivo para almacenar archivos.'),
+        actions: [
+          TextButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(const Color.fromARGB(255, 218, 243, 255)),
+            ),
+            onPressed: (){
+              Permission.manageExternalStorage.request();
+              Navigator.of(context).pop(false);
+            },
+            child: const Text("Ir a ajustes")
+          ),
+        ],
+      ),
+    ).then((value) => false);
+  }
 }
+

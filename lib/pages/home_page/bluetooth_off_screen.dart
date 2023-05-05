@@ -1,9 +1,6 @@
-import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
-import 'package:permission_handler/permission_handler.dart';
-
 class BluetoothOffScreen extends StatelessWidget {
   const BluetoothOffScreen({Key? key, this.state}) : super(key: key);
 
@@ -11,12 +8,11 @@ class BluetoothOffScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: Colors.blue,
       body: Center(
         child: Column(
-          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
               "Monitor",
@@ -41,22 +37,26 @@ class BluetoothOffScreen extends StatelessWidget {
               // 'El adaptador bluetooth está ${state.toString().substring(15)}.',
               (state.toString().substring(15) == "turningOn")
                 ?"El adaptador BLUETOOTH se está encendiendo."
-                :"El adaptador BLUETOOTH está apagado.",
-              style: Theme.of(context)
-                  .primaryTextTheme
-                  .titleSmall
-                  ?.copyWith(color: Colors.white),
+                :"Debe encender el adaptador BLUETOOTH.",
+              overflow: TextOverflow.fade,
             ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.white,
-                foregroundColor: Colors.blue
-              ),
-              onPressed: Platform.isAndroid
-                  ? () => FlutterBluePlus.instance.turnOn()
-                  : null,
-              child: const Text('Encender BT'),
-            ),
+            // ElevatedButton(
+            //   style: ElevatedButton.styleFrom(
+            //     backgroundColor: Colors.white,
+            //     foregroundColor: Colors.blue
+            //   ),
+            //   onPressed: Platform.isAndroid
+            //       ? () async {
+            //         if (await Permission.location.isGranted) {
+            //           print("bt concedido");
+            //           FlutterBluePlus.instance.turnOn();
+            //         } else {
+            //           print("bt denegado");
+            //         }
+            //       }
+            //       : null,
+            //   child: const Text('Encender BT'),
+            // ),
           ],
         ),
       ),
