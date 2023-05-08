@@ -19,6 +19,7 @@ dependencies:
   android_path_provider: ^0.3.0
   permission_handler: ^10.2.0
   location: ^4.4.0
+  bluetooth_enable_fork: ^0.1.6
 
 dev_dependencies:
   flutter_test:

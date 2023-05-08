@@ -14,6 +14,12 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "bluetooth_enable_fork",
+      "rootUri": "file:///C:/Users/desarrollador5.itisb/AppData/Local/Pub/Cache/hosted/pub.dev/bluetooth_enable_fork-0.1.6",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "boolean_selector",
       "rootUri": "file:///C:/Users/desarrollador5.itisb/AppData/Local/Pub/Cache/hosted/pub.dev/boolean_selector-2.1.1",
       "packageUri": "lib/",
@@ -422,7 +428,7 @@
       "languageVersion": "2.19"
     }
   ],
-  "generated": "2023-05-08T14:06:36.204457Z",
+  "generated": "2023-05-08T15:06:08.747337Z",
   "generator": "pub",
   "generatorVersion": "2.19.4"
 }

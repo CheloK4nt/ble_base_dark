@@ -44,12 +44,16 @@ class _BTPermissionPageState extends State<BTPermissionPage> {
             ),
             ElevatedButton(
               // onPressed: () => openAppSettings(),
-              onPressed: (){
-                Permission.bluetoothScan.request();
+              onPressed: () async {
+                print(await Permission.bluetoothScan.status);
+                await Permission.bluetoothScan.request();
+                if (await Permission.bluetoothScan.isDenied) {
+                  openAppSettings();
+                }
               },
-              child: const Text("Ir a ajustes")
-              )
-            ],
+              child: const Text("Conceder Permiso")
+            )
+          ],
         )),
       );
     }

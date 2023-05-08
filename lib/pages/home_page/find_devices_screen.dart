@@ -1,6 +1,9 @@
 
+import 'dart:io';
+
 import 'package:ble_base/pages/charts_page/start_exam_page.dart';
 import 'package:ble_base/widgets.dart';
+import 'package:bluetooth_enable_fork/bluetooth_enable_fork.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 
@@ -59,11 +62,12 @@ class FindDevicesScreen extends StatelessWidget {
                                       backgroundColor:
                                           Theme.of(context).primaryColorDark,
                                     ),
-                                    child: const Text('ABRIR'),
-                                    onPressed: () => Navigator.of(context).push(
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                DeviceScreen(device: d))),
+                                    onPressed: null,
+                                    child: const Text('CONECTADO'),
+                                    // onPressed: () => Navigator.of(context).push(
+                                    //     MaterialPageRoute(
+                                    //         builder: (context) =>
+                                    //             DeviceScreen(device: d))),
                                   );
                                 }
                                 // return Text("Desconectando");

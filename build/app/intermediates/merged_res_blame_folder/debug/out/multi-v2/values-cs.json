@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.ble_base.app-mergeDebugResources-14:/values-cs/values-cs.xml",
+            "outputFile": "com.example.ble_base.app-mergeDebugResources-15:/values-cs/values-cs.xml",
             "map": [
                 {
                     "source": "C:\\Users\\desarrollador5.itisb\\.gradle\\caches\\transforms-3\\2fe15c377afc67482281768db3606a8e\\transformed\\jetified-play-services-base-16.0.1\\res\\values-cs\\values.xml",
@@ -38,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\desarrollador5.itisb\\.gradle\\caches\\transforms-3\\4ca28c4a71705f8a687c69dda140a277\\transformed\\core-1.6.0\\res\\values-cs\\values-cs.xml",
+                    "source": "C:\\Users\\desarrollador5.itisb\\.gradle\\caches\\transforms-3\\270e9501dde0430a83746f97bf9ab544\\transformed\\core-1.8.0\\res\\values-cs\\values-cs.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

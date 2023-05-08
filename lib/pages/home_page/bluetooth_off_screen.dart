@@ -1,6 +1,10 @@
 
+import 'dart:io';
+
+import 'package:bluetooth_enable_fork/bluetooth_enable_fork.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
+import 'package:permission_handler/permission_handler.dart';
 class BluetoothOffScreen extends StatelessWidget {
   const BluetoothOffScreen({Key? key, this.state}) : super(key: key);
 
@@ -38,25 +42,23 @@ class BluetoothOffScreen extends StatelessWidget {
               (state.toString().substring(15) == "turningOn")
                 ?"El adaptador BLUETOOTH se está encendiendo."
                 :"Debe encender el adaptador BLUETOOTH.",
-              overflow: TextOverflow.fade,
+              style: const TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w400
+              ),
             ),
-            // ElevatedButton(
-            //   style: ElevatedButton.styleFrom(
-            //     backgroundColor: Colors.white,
-            //     foregroundColor: Colors.blue
-            //   ),
-            //   onPressed: Platform.isAndroid
-            //       ? () async {
-            //         if (await Permission.location.isGranted) {
-            //           print("bt concedido");
-            //           FlutterBluePlus.instance.turnOn();
-            //         } else {
-            //           print("bt denegado");
-            //         }
-            //       }
-            //       : null,
-            //   child: const Text('Encender BT'),
-            // ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.white,
+                foregroundColor: Colors.blue
+              ),
+              onPressed: Platform.isAndroid
+                  ? () async {
+                    BluetoothEnable.enableBluetooth;
+                  }
+                  : null,
+              child: const Text('Encender BT'),
+            ),
           ],
         ),
       ),

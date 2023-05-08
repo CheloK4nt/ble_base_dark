@@ -113,17 +113,20 @@ class _HomePageState extends State<HomePage> {
     return showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Conceder permiso'),
-        content: const Text('Debe conceder permiso de ubicación en su dispositivo para encontrar dispositivos cercanos.'),
+        icon: const Icon(Icons.location_on_outlined),
+        title: const Text('Ubicación'),
+        content: const Text('Debe conceder permiso de ubicación(precisa) en su dispositivo para encontrar dispositivos cercanos.'),
         actions: [
           TextButton(
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all(const Color.fromARGB(255, 218, 243, 255)),
             ),
-            onPressed: (){
-              // Permission.location.request();
-              Permission.locationWhenInUse.request();
+            onPressed: () async {
+              await Permission.location.request();
               Navigator.of(context).pop(false);
+              if (await Permission.location.isDenied) {
+                openAppSettings();
+              }
             },
             child: const Text("Conceder Permiso")
           ),

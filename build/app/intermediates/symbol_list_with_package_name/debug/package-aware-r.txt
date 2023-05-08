@@ -24,6 +24,7 @@ attr fontWeight
 attr imageAspectRatio
 attr imageAspectRatioAdjust
 attr keylines
+attr lStar
 attr layout_anchor
 attr layout_anchorGravity
 attr layout_behavior
@@ -227,6 +228,7 @@ id text2
 id time
 id title
 id top
+id view_tree_lifecycle_owner
 id wide
 integer cancel_button_image_alpha
 integer google_play_services_version
@@ -285,7 +287,7 @@ style Widget_Support_CoordinatorLayout
 styleable ActivityFilter activityAction activityName
 styleable ActivityRule alwaysExpand
 styleable Capability queryPatterns shortcutMatchRequired
-styleable ColorStateListItem android_color android_alpha alpha
+styleable ColorStateListItem android_color android_alpha android_lStar alpha lStar
 styleable CoordinatorLayout keylines statusBarBackground
 styleable CoordinatorLayout_Layout android_layout_gravity layout_anchor layout_anchorGravity layout_behavior layout_dodgeInsetEdges layout_insetEdge layout_keyline
 styleable FontFamily fontProviderAuthority fontProviderCerts fontProviderFetchStrategy fontProviderFetchTimeout fontProviderPackage fontProviderQuery fontProviderSystemFontFamily

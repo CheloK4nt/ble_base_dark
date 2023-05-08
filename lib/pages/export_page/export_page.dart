@@ -155,7 +155,8 @@ class _ExportPageState extends State<ExportPage> {
     return showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Conceder permiso'),
+        icon: const Icon(Icons.folder_outlined),
+        title: const Text('Almacenamiento'),
         content: const Text('Debe conceder permiso en su dispositivo para almacenar archivos.'),
         actions: [
           TextButton(
