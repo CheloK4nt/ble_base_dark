@@ -43,7 +43,10 @@ class _BTPermissionPageState extends State<BTPermissionPage> {
               child: Text("Debe conceder permisos de DISPOSITIVOS CERCANOS para poder acceder a las funciones"),
             ),
             ElevatedButton(
-              onPressed: () => openAppSettings(),
+              // onPressed: () => openAppSettings(),
+              onPressed: (){
+                Permission.bluetoothScan.request();
+              },
               child: const Text("Ir a ajustes")
               )
             ],
@@ -53,7 +56,7 @@ class _BTPermissionPageState extends State<BTPermissionPage> {
   }
 
   void getBtPermission() async {
-    if (await Permission.bluetoothConnect.isGranted) {
+    if (await Permission.bluetoothScan.isGranted) {
       setState(() {
         btPermission = true;
       });
