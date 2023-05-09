@@ -1,3 +1,4 @@
+import 'package:ble_base/widgets/settings_page_wg/open_app_settings.dart';
 import 'package:flutter/material.dart';
 
 import '../../widgets/settings_page_wg/dark_mode_sw.dart';
@@ -16,6 +17,8 @@ class SettingsPage extends StatelessWidget {
         body: ListView(
           children: const [
             DarkModeSwitch(),
+            Divider(thickness: 2,),
+            OpenAppSettings(),
             Divider(thickness: 2,),
           ],
         ),

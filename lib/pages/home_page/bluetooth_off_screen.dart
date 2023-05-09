@@ -19,7 +19,7 @@ class BluetoothOffScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              "Monitor",
+              "ExhalApp",
               style: TextStyle(
                 fontSize: 70,
                 fontWeight: FontWeight.w200,
