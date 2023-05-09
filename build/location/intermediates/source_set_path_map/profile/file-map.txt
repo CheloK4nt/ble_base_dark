@@ -1,0 +1,16 @@
+com.lyokone.location-jetified-window-java-1.0.0-beta04-0 C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\006d93cd422dbc43e89591147c2de572\transformed\jetified-window-java-1.0.0-beta04\res
+com.lyokone.location-jetified-play-services-basement-16.0.1-1 C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\1d75b34626247df88008199093464769\transformed\jetified-play-services-basement-16.0.1\res
+com.lyokone.location-jetified-play-services-base-16.0.1-2 C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\2fe15c377afc67482281768db3606a8e\transformed\jetified-play-services-base-16.0.1\res
+com.lyokone.location-core-1.6.0-3 C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\4ca28c4a71705f8a687c69dda140a277\transformed\core-1.6.0\res
+com.lyokone.location-coordinatorlayout-1.0.0-4 C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\658c795313ef4882e96b91cbdc33f336\transformed\coordinatorlayout-1.0.0\res
+com.lyokone.location-jetified-annotation-experimental-1.1.0-5 C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\8965c941cf4bee4d72541b965c7c9d39\transformed\jetified-annotation-experimental-1.1.0\res
+com.lyokone.location-jetified-window-1.0.0-beta04-6 C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\res
+com.lyokone.location-media-1.0.0-7 C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\f057e7418cf3ed9a7aa575bdc69ad668\transformed\media-1.0.0\res
+com.lyokone.location-main-8 C:\Users\desarrollador5.itisb\AppData\Local\Pub\Cache\hosted\pub.dev\location-4.4.0\android\src\main\res
+com.lyokone.location-profile-9 C:\Users\desarrollador5.itisb\AppData\Local\Pub\Cache\hosted\pub.dev\location-4.4.0\android\src\profile\res
+com.lyokone.location-pngs-10 C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\location\generated\res\pngs\profile
+com.lyokone.location-resValues-11 C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\location\generated\res\resValues\profile
+com.lyokone.location-rs-12 C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\location\generated\res\rs\profile
+com.lyokone.location-mergeProfileResources-13 C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\location\intermediates\incremental\profile\mergeProfileResources\merged.dir
+com.lyokone.location-mergeProfileResources-14 C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\location\intermediates\incremental\profile\mergeProfileResources\stripped.dir
+com.lyokone.location-merged_res-15 C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\location\intermediates\merged_res\profile

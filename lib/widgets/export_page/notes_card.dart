@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 class NotesCard extends StatefulWidget {
-  const NotesCard({super.key, required this.valor});
+  const NotesCard({super.key, required this.valor, required this.notas});
   final String valor;
+  final List notas;
 
   @override
   State<NotesCard> createState() => _NotesCardState();
@@ -15,7 +16,7 @@ class _NotesCardState extends State<NotesCard> {
       color: Colors.white,
       elevation: 10,
       child: InkWell(
-        onTap: (){},
+        onTap: _showNotes,
         child: SizedBox(
           width: MediaQuery.of(context).size.width * 0.43,
           height: MediaQuery.of(context).size.height * 0.15,
@@ -83,5 +84,24 @@ class _NotesCardState extends State<NotesCard> {
         ),
       ),
     );
+  }
+
+  Future _showNotes() {
+    return showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Notas'),
+        content: Text(widget.notas.toString()),
+        actions: [
+          TextButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(const Color.fromARGB(255, 218, 243, 255)),
+            ),
+            onPressed: () => Navigator.of(context).pop(false),
+            child: const Text('Ok')
+          ),
+        ],
+      ),
+    ).then((value) => false);
   }
 }

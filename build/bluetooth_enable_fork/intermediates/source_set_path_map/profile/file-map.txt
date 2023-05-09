@@ -1,0 +1,13 @@
+com.hui.bluetooth_enable.bluetooth_enable_fork-jetified-window-java-1.0.0-beta04-0 C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\006d93cd422dbc43e89591147c2de572\transformed\jetified-window-java-1.0.0-beta04\res
+com.hui.bluetooth_enable.bluetooth_enable_fork-core-1.8.0-1 C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\270e9501dde0430a83746f97bf9ab544\transformed\core-1.8.0\res
+com.hui.bluetooth_enable.bluetooth_enable_fork-lifecycle-runtime-2.3.1-2 C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\76da31ad033c53187dd7271282d0f7d2\transformed\lifecycle-runtime-2.3.1\res
+com.hui.bluetooth_enable.bluetooth_enable_fork-jetified-annotation-experimental-1.1.0-3 C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\8965c941cf4bee4d72541b965c7c9d39\transformed\jetified-annotation-experimental-1.1.0\res
+com.hui.bluetooth_enable.bluetooth_enable_fork-jetified-window-1.0.0-beta04-4 C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\res
+com.hui.bluetooth_enable.bluetooth_enable_fork-main-5 C:\Users\desarrollador5.itisb\AppData\Local\Pub\Cache\hosted\pub.dev\bluetooth_enable_fork-0.1.6\android\src\main\res
+com.hui.bluetooth_enable.bluetooth_enable_fork-profile-6 C:\Users\desarrollador5.itisb\AppData\Local\Pub\Cache\hosted\pub.dev\bluetooth_enable_fork-0.1.6\android\src\profile\res
+com.hui.bluetooth_enable.bluetooth_enable_fork-pngs-7 C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\bluetooth_enable_fork\generated\res\pngs\profile
+com.hui.bluetooth_enable.bluetooth_enable_fork-resValues-8 C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\bluetooth_enable_fork\generated\res\resValues\profile
+com.hui.bluetooth_enable.bluetooth_enable_fork-rs-9 C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\bluetooth_enable_fork\generated\res\rs\profile
+com.hui.bluetooth_enable.bluetooth_enable_fork-mergeProfileResources-10 C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\bluetooth_enable_fork\intermediates\incremental\profile\mergeProfileResources\merged.dir
+com.hui.bluetooth_enable.bluetooth_enable_fork-mergeProfileResources-11 C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\bluetooth_enable_fork\intermediates\incremental\profile\mergeProfileResources\stripped.dir
+com.hui.bluetooth_enable.bluetooth_enable_fork-merged_res-12 C:\Users\desarrollador5.itisb\Documents\proyectos\FlutterProyects\ble_base_dark\build\bluetooth_enable_fork\intermediates\merged_res\profile

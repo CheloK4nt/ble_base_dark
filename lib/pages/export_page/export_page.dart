@@ -18,6 +18,7 @@ class ExportPage extends StatefulWidget {
     required this.tiempo,
     required this.totales,
     required this.maximo,
+    required this.notas,
   });
   final List fullDataList;
   final String fullDataString;
@@ -25,6 +26,7 @@ class ExportPage extends StatefulWidget {
   final String tiempo;
   final String totales;
   final String maximo;
+  final List notas;
 
   @override
   State<ExportPage> createState() => _ExportPageState();
@@ -33,6 +35,8 @@ class ExportPage extends StatefulWidget {
 class _ExportPageState extends State<ExportPage> {
 
   bool creatingFile = false;
+  String stringNotas = "";
+  bool enableExport = true;
   // ignore: non_constant_identifier_names
   DateTime pre_backpress = DateTime.now().subtract(const Duration(days: 1));
 
@@ -104,7 +108,7 @@ class _ExportPageState extends State<ExportPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             MaxCard(valor: widget.maximo),
-                            const NotesCard(valor: "2"),
+                            NotesCard(valor: widget.notas.length.toString(), notas: widget.notas,),
                           ],
                         ),
                       ),
@@ -116,22 +120,33 @@ class _ExportPageState extends State<ExportPage> {
               
                       (creatingFile == false)
                         ?ElevatedButton(
-                          onPressed: () async {
+                          onPressed: (enableExport == true)? () async {
                             if (await Permission.manageExternalStorage.isGranted) {
                               setState(() {
                                 creatingFile = true;
                               });
+                              /* se exportan los datos */
                               StorageHelper.writeTextToFile(widget.fullDataString.toString()).then((value){
+                                for (var note in widget.notas) {
+                                  stringNotas = "$stringNotas${note.toString().substring(0,5)}";
+                                  stringNotas = "$stringNotas,";
+                                  stringNotas = "$stringNotas${note.toString().substring(5, note.toString().length)};\n";
+                                }
+                                StorageHelper.writeNotesToFile(stringNotas);
+
                                 setState(() {
                                   creatingFile = false;
+                                  enableExport = false;
                                 });
-                                const snack = SnackBar(content: Center(child: Text('Datos exportados satisfactoriamente.')),duration: Duration(seconds: 2),);
+                                final snack = SnackBar(
+                                  backgroundColor: Colors.blue.shade900,
+                                  content: const Center(child: Text('Datos exportados satisfactoriamente.')),duration: Duration(seconds: 2),);
                                 return ScaffoldMessenger.of(context).showSnackBar(snack);
                               });
                             } else {
                               storagePermissionDialog();
                             }
-                          },
+                          }:null,
                           child: const Text("Exportar datos")
                         )
                         :const CircularProgressIndicator(),

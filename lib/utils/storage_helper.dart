@@ -9,7 +9,14 @@ class StorageHelper {
   /* path */
 
   static Future<String> get _localPath async {
-    final directory = await AndroidPathProvider.documentsPath;
+    final documentsPath = await AndroidPathProvider.documentsPath;
+    final directory = "$documentsPath/ExhalApp";
+    final folder = Directory(directory);
+    if (await folder.exists()) {
+      print("folder existe");
+    } else {
+      folder.create();
+    }
     print(directory);
     return directory;
   }
@@ -17,6 +24,11 @@ class StorageHelper {
   static Future<File> get _localFile async{
     final path = await _localPath;
     return File("$path/fullDataList.txt");
+  }
+
+  static Future<File> get _localNotesFile async{
+    final path = await _localPath;
+    return File("$path/notesFile.txt");
   }
 
   /* Read File */
@@ -30,6 +42,12 @@ class StorageHelper {
 
   static Future<File> writeTextToFile(String data) async {
     final file = await _localFile;
+    print("Escribiendo");
+    return file.writeAsString(data);
+  }
+
+  static Future<File> writeNotesToFile(String data) async {
+    final file = await _localNotesFile;
     print("Escribiendo");
     return file.writeAsString(data);
   }

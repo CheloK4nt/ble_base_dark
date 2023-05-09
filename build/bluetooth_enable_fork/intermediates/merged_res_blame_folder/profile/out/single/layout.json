@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "com.hui.bluetooth_enable.bluetooth_enable_fork-merged_res-11:/layout/notification_template_part_time.xml",
+        "source": "com.hui.bluetooth_enable.bluetooth_enable_fork-core-1.8.0-1:/layout/notification_template_part_time.xml"
+    },
+    {
+        "merged": "com.hui.bluetooth_enable.bluetooth_enable_fork-merged_res-11:/layout/notification_action_tombstone.xml",
+        "source": "com.hui.bluetooth_enable.bluetooth_enable_fork-core-1.8.0-1:/layout/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "com.hui.bluetooth_enable.bluetooth_enable_fork-merged_res-11:/layout/notification_template_icon_group.xml",
+        "source": "com.hui.bluetooth_enable.bluetooth_enable_fork-core-1.8.0-1:/layout/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "com.hui.bluetooth_enable.bluetooth_enable_fork-merged_res-11:/layout/notification_template_part_chronometer.xml",
+        "source": "com.hui.bluetooth_enable.bluetooth_enable_fork-core-1.8.0-1:/layout/notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "com.hui.bluetooth_enable.bluetooth_enable_fork-merged_res-11:/layout/custom_dialog.xml",
+        "source": "com.hui.bluetooth_enable.bluetooth_enable_fork-core-1.8.0-1:/layout/custom_dialog.xml"
+    },
+    {
+        "merged": "com.hui.bluetooth_enable.bluetooth_enable_fork-merged_res-11:/layout/notification_action.xml",
+        "source": "com.hui.bluetooth_enable.bluetooth_enable_fork-core-1.8.0-1:/layout/notification_action.xml"
+    }
+]

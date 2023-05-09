@@ -9,6 +9,7 @@ import 'package:ble_base/main.dart';
 import 'package:ble_base/pages/export_page/export_page.dart';
 import 'package:ble_base/pages/home_page/home_page.dart';
 import 'package:ble_base/providers/ui_provider.dart';
+import 'package:ble_base/widgets/charts_page_wg/add_note_button.dart';
 import 'package:ble_base/widgets/charts_page_wg/chart_selector.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
@@ -71,6 +72,8 @@ class _ChartsPageState extends State<ChartsPage> {
   String corte = "";
   double maximo = 0;
 
+  List notas = List.empty(growable: true);
+
   @override
   void initState() {   
     super.initState();
@@ -104,6 +107,7 @@ class _ChartsPageState extends State<ChartsPage> {
     return WillPopScope(
       onWillPop: _onWillPop,
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
           title: const Text('Monitor EBC'),
         ),
@@ -172,6 +176,8 @@ class _ChartsPageState extends State<ChartsPage> {
                         ),
                       ),
                       /* ==================== FIN VALOR ACTUAL ==================== */
+
+                      AddNoteBTN(notas: notas, tiempo: "$min:$seg",),
 
                       /* ==================== GRAFICO ==================== */
                       Expanded(
@@ -445,7 +451,9 @@ class _ChartsPageState extends State<ChartsPage> {
               disconnectFromDevice();
 
               fillList = false;
-              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => ExportPage(fullDataString: _fullDataString, fullDataList: _fullDataList, corte: corte, tiempo: tiempo, totales: totales, maximo: maximoStr,)), (Route route) => false);
+              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(
+                builder: (context) => ExportPage(fullDataString: _fullDataString, fullDataList: _fullDataList, corte: corte, tiempo: tiempo, totales: totales, maximo: maximoStr, notas: notas,)
+              ), (Route route) => false);
             },
             child: const Text('Terminar')
           ),
