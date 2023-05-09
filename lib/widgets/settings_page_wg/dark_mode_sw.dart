@@ -32,7 +32,7 @@ class _DarkModeSwitchState extends State<DarkModeSwitch> {
         ),
       ),
       subtitle: const Text(
-        'El modo oscuro no fuerza tanto tu visión y reduce el consumo de batería.',
+        'El modo oscuro no fuerza tanto tu visión por la noche y reduce el consumo de batería.',
       ),
       onChanged: (value){
         setState(() {

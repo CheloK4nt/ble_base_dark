@@ -44,7 +44,7 @@ class ThemeProvider extends ChangeNotifier{
   );
 
   ThemeProvider(bool isDark){
-    _selectedTheme = (isDark) ? light : dark; /* aloooo cambie esto, hay que ponerlo al reves*/
+    _selectedTheme = (isDark) ? dark : light;
   }
 
   Future<void> swapTheme() async {
