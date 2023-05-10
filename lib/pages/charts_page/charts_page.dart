@@ -122,6 +122,7 @@ class _ChartsPageState extends State<ChartsPage> {
               if (snapshot.connectionState == ConnectionState.active) {
                 /* RECEPCION DE DATOS  */
                 var currentValue = _dataParser(snapshot.data!);
+                print(currentValue);
 
                 if (_dataList.isEmpty){
                   _addData(0, fillList);

@@ -16,7 +16,7 @@ class UserPrefs {
   }
 
   bool get darkMode{
-    return _prefs!.getBool(darkmode) ?? true;
+    return _prefs!.getBool(darkmode) ?? false;
   }
   set darkMode(bool value){
     _prefs!.setBool(darkmode, value);

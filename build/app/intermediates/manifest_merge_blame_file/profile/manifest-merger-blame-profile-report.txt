@@ -70,7 +70,7 @@
 40-->[androidx.core:core:1.8.0] C:\Users\desarrollador5.itisb\.gradle\caches\transforms-3\270e9501dde0430a83746f97bf9ab544\transformed\core-1.8.0\AndroidManifest.xml:24:18-86
 41        android:debuggable="true"
 42        android:icon="@mipmap/ic_launcher"
-43        android:label="Monitor EBC"
+43        android:label="ExhalApp"
 44        android:requestLegacyExternalStorage="true" >
 45        <activity
 46            android:name="com.example.ble_base.MainActivity"
