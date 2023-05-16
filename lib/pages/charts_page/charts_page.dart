@@ -23,7 +23,7 @@ import 'package:path_provider/path_provider.dart';
 /* DECLARACIONES LINE CHART */
 class MyData {
   final num xValue;
-  final num yValue;
+  final num? yValue;
   MyData(this.xValue, this.yValue);
 }
 /* FIN DECLARACIONES */
@@ -45,6 +45,7 @@ class _ChartsPageState extends State<ChartsPage> {
   final String TARGET_CHARACTERISTIC = "beb5482e-36e1-4688-b7f5-ea07361b26a8";
   bool isReady = false;
   bool fillList = true;
+  bool isCutPoint = false;
   Stream<List<int>>? stream;
   late BluetoothCharacteristic targetCharacteristic;
 
@@ -54,6 +55,15 @@ class _ChartsPageState extends State<ChartsPage> {
   List<MyData> _dataListX2 = List.empty(growable: true); /* Lista 2 para grafico kpa */
   List<MyData> _dataListY = List.empty(growable: true); /* Lista para grafico % */
   List<MyData> _dataListY2 = List.empty(growable: true); /* Lista 2 para grafico % */
+
+  List<MyData> _dataPointList = List.empty(growable: true); /* Lista para grafico mmhg */
+  List<MyData> _dataPointList2 = List.empty(growable: true); /* Lista 2 grafico mmhg */
+  List<MyData> _dataPointListX = List.empty(growable: true); /* Lista para grafico kpa */
+  List<MyData> _dataPointListX2 = List.empty(growable: true); /* Lista 2 para grafico kpa */
+  List<MyData> _dataPointListY = List.empty(growable: true); /* Lista para grafico % */
+  List<MyData> _dataPointListY2 = List.empty(growable: true); /* Lista 2 para grafico % */
+
+
   List _fullDataList = List.empty(growable: true); /* Lista historica de datos */
   String _fullDataString = "";
 
@@ -101,7 +111,16 @@ class _ChartsPageState extends State<ChartsPage> {
         measureFn: (MyData data, _) => data.yValue,
         data: (uiProvider == "Grafico mmHg")?_dataList :_dataListX,
         colorFn: (_, __) => charts.MaterialPalette.blue.shadeDefault,
-      )
+      ),
+      charts.Series<MyData, num>(
+        id: 'mySeries2',
+        domainFn: (MyData data, _) => data.xValue,
+        measureFn: (MyData data, _) => data.yValue,
+        data: (uiProvider == "Grafico mmHg")?_dataPointList :_dataPointListX,
+        colorFn: (_, __) => charts.MaterialPalette.red.shadeDefault,
+        areaColorFn: (_, __) => charts.MaterialPalette.transparent,
+        strokeWidthPxFn: (_, __) => 3,
+      ),
     ];
 
     return WillPopScope(
@@ -109,7 +128,7 @@ class _ChartsPageState extends State<ChartsPage> {
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
-          title: const Text('Monitor EBC'),
+          title: const Text('ExhalApp Monitor'),
         ),
         body: StreamBuilder<List<int>>(
             stream: stream,
@@ -129,6 +148,12 @@ class _ChartsPageState extends State<ChartsPage> {
                 }
                 Future.delayed(Duration.zero,(){
                   setState(() {
+                    if (currentValue.contains("x")) {
+                      isCutPoint = true;
+                      currentValue = currentValue.replaceAll(RegExp("[A-Za-z]"), "");
+                    } else {
+                      isCutPoint = false;
+                    }
                     _addData(double.tryParse(currentValue) ?? 0, fillList);
                   });
                 });
@@ -285,29 +310,70 @@ class _ChartsPageState extends State<ChartsPage> {
   /* ==================== AGREGAR DATOS A LINE CHART ==================== */
   void _addData(valor, fillList) {
 
-    if (valor > maximo) {
+    if (valor > maximo) { /* aqui se declara el valor maximo */
       maximo = valor;
     }
 
-    if (_dataList.length < 300) {
-      _dataList.add(MyData(_dataList.length, valor));
-      _dataListX.add(MyData(_dataListX.length, (valor * 0.133322)));
-      _dataListY.add(MyData(_dataListY.length, (valor / 7.6)));      
-    } else {
+    if (_dataList.length < 300) { /* si la catidad de datos es menor a 300, agrega los datos a las listas */
+      _dataList.add(MyData(_dataList.length, valor)); /* lista mmhg */
+      _dataListX.add(MyData(_dataListX.length, (valor * 0.133322))); /* lista kpa */
+      _dataListY.add(MyData(_dataListY.length, (valor / 7.6))); /* lista % */
+
+      if (isCutPoint == false) { /* si el dato no es punto de corte, se rellena la lista con null */
+        _dataPointList.add(MyData(_dataPointList.length, null));
+        _dataPointListX.add(MyData(_dataPointListX.length, null));
+        _dataPointListY.add(MyData(_dataPointListY.length, null));
+      } else { /* en cambio, si es punto de corte, se agrega el dato a la lista respectiva */
+        _dataPointList.add(MyData(_dataPointList.length, valor));
+        _dataPointListX.add(MyData(_dataPointListX.length, (valor * 0.133322)));
+        _dataPointListY.add(MyData(_dataPointListY.length, (valor / 7.6)));
+      }
+
+    } else { /* en cambio, si la cantidad de datos es maor a 300, elimina el primer dato en la lista y agrega al final el nuevo dato para simular la animacion */
       for (var element in _dataList.getRange(_dataList.length - 299, _dataList.length)) {
         _dataList2.add(MyData(_dataList2.length, element.yValue));
-        _dataListX2.add(MyData(_dataListX2.length, (element.yValue * 0.133322)));
-        _dataListY2.add(MyData(_dataListY2.length, (element.yValue / 7.6)));
+        _dataListX2.add(MyData(_dataListX2.length, (element.yValue! * 0.133322)));
+        _dataListY2.add(MyData(_dataListY2.length, (element.yValue! / 7.6)));
       }
+
+      for (var element in _dataPointList.getRange(_dataPointList.length - 299, _dataList.length)) {
+        _dataPointList2.add(MyData(_dataPointList2.length, element.yValue));
+        if (element.yValue == null) {
+          _dataPointListX2.add(MyData(_dataPointListX2.length, (null)));
+          _dataPointListY2.add(MyData(_dataPointListY2.length, (null)));
+        } else {
+          _dataPointListX2.add(MyData(_dataPointListX2.length, (element.yValue! * 0.133322)));
+          _dataPointListY2.add(MyData(_dataPointListY2.length, (element.yValue! / 7.6)));
+        }
+      }
+
       _dataList = _dataList2;
+      _dataPointList = _dataPointList2;
       _dataListX = _dataListX2;
+      _dataPointListX = _dataPointListX2;
       _dataListY = _dataListY2;
+      _dataPointListY = _dataPointListY2;
+
       _dataList.add(MyData(_dataList.length, valor));
       _dataListX.add(MyData(_dataListX.length, (valor * 0.133322)));
       _dataListY.add(MyData(_dataListY.length, (valor / 7.6)));
+
+      if (isCutPoint == false) {
+        _dataPointList.add(MyData(_dataPointList.length, null));
+        _dataPointListX.add(MyData(_dataPointListX.length, null));
+        _dataPointListY.add(MyData(_dataPointListY.length, null));
+      } else {
+        _dataPointList.add(MyData(_dataPointList.length, valor));
+        _dataPointListX.add(MyData(_dataPointListX.length, (valor * 0.133322)));
+        _dataPointListY.add(MyData(_dataPointListY.length, (valor / 7.6)));
+      }
+
       _dataList2 = [];
+      _dataPointList2 = [];
       _dataListX2 = [];
+      _dataPointListX2 = [];
       _dataListY2 = [];  
+      _dataPointListY2 = [];  
     }
     if (fillList == true) {
       _fullDataList.add("$min$seg$mili-$valor");
@@ -411,8 +477,9 @@ class _ChartsPageState extends State<ChartsPage> {
               foregroundColor: MaterialStateProperty.all(Colors.white),
             ),
             onPressed: () {
+              writeData("0");
               disconnectFromDevice();
-              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => const MonitorEBCApp()), (Route route) => false);
+              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => const MonitorEBCApp()), (Route route) => false).then((value) => disconnectFromDevice());
             },
             child: const Text('Si')
           ),
