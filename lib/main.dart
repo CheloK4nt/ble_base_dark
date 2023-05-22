@@ -17,7 +17,7 @@ void main() async {
   await prefs.initPrefs();
 
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((_) {
-    runApp( 
+    runApp(
       MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (_) => UIProvider()),

@@ -1,4 +1,4 @@
-#Mon May 15 12:54:43 CLT 2023
+#Tue May 16 15:06:26 CLT 2023
 base.0=C\:\\Users\\desarrollador5.itisb\\Documents\\proyectos\\FlutterProyects\\ble_base_dark\\build\\app\\intermediates\\dex\\profile\\mergeDexProfile\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

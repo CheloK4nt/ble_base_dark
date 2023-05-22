@@ -40,7 +40,7 @@
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="ExhalApp"
+        android:label="Base ExhalApp"
         android:requestLegacyExternalStorage="true" >
         <activity
             android:name="com.example.ble_base.MainActivity"
